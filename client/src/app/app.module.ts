@@ -9,11 +9,16 @@ import { RouterModule } from '../../node_modules/@angular/router';
 
 import { FormsModule} from '@angular/forms';
 import { HttpModule} from '@angular/http';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { SessionService } from '../services/session.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,7 @@ import { HttpModule} from '@angular/http';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<ul>
+  <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">Sign up</a></li>
+  <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">Log in</a></li>
+  <li *ngIf="sessionService.user"><a href="#" (click)="logout();">Log out</a></li>
+</ul>
 <router-outlet></router-outlet>
-
