@@ -1,9 +1,3 @@
-const express = require('express');
-const router  = express.Router();
-
-/* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
-
-module.exports = router;
+module.exports = function(app) {
+  app.use('/api/auth', require('./auth'));
+};
