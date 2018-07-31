@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { environment} from "../../environments/environment"
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const baseVideosUrl = "../../assets/videos/";
+    const baseVideosUrl = environment.videoURL;
 
     switch (this.randomSong) {
       case 0: {
