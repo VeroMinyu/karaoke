@@ -4,8 +4,9 @@ const Schema   = mongoose.Schema;
 const songSchema = new Schema({
     title: String,
     artist: String,
-    popularity: Number,
+    popularity: {type: Number, default:0},
     video_name: String,
+    video_img: String,
     offset: {type: Number, default: 0},
     lyrics: [{time:Number,lyrics:String}]
 },{
