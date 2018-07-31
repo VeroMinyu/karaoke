@@ -23,7 +23,7 @@ export class SongsService {
     );
   }
 
-  getSong(id): Observable<object> {
+  getSong(id): Observable<any> {
     return this.http.get(`${BASEURL}/api/songs/${id}`, this.options).pipe(
       map((res: Response) => {
         return res.json();

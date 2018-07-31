@@ -1,3 +1,16 @@
-<p>
-  song works!
-</p>
+<section id="song" *ngIf="song">
+  <div class="video-wrap" *ngIf="videoSource">
+    <video id="myVideo" #videoPlayer>
+      <source src={{videoSource}} type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div id="video-controls">
+      <button (click)="toggle()"><i class="fa {{pauseClass}}"></i></button>
+    </div>
+  </div>
+  <h1>{{song.title}}</h1>
+  <h2>{{song.artist}}</h2>
+  <p>
+    {{song.lyrics}}
+  </p>
+</section>

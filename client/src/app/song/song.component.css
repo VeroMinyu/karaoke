@@ -1,0 +1,18 @@
+#video-controls {
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 90vh;
+  width: 150px;
+}
+
+#video-controls button {
+  background: none;
+  border: none;
+  margin-right: 20px;
+  color: #fff;
+  font-size: 46px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  outline: none;
+  text-align: left;
+}
