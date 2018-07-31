@@ -12,13 +12,19 @@ import { HttpModule} from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SessionService } from '../services/session.service';
+import { SongsListComponent } from './songs-list/songs-list.component';
+import { SongComponent } from './song/song.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    SongsListComponent,
+    SongComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

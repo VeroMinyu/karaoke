@@ -8,12 +8,8 @@ import { of } from "rxjs";
 
 const { BASEURL } = environment;
 
-interface User {
-  username: string;
-}
-
 @Injectable()
-export class SongService {
+export class SongsService {
   options: object = { withCredentials: true };
 
   constructor(private http: Http) {}
