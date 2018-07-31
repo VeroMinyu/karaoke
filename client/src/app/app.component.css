@@ -1,0 +1,32 @@
+header {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+header #logo {
+  width: 100px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+}

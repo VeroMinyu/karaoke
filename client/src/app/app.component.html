@@ -1,6 +1,16 @@
-<ul>
-  <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">Sign up</a></li>
-  <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">Log in</a></li>
-  <li *ngIf="sessionService.user"><a href="#" (click)="logout();">Log out</a></li>
-</ul>
+<header>
+  <div class="logo-wrp">
+    <a [routerLink]="['/']"><img id="logo" src="../../assets/logo2.png" alt=""></a>
+  </div>
+  <nav>
+    <ul>
+      <li><a [routerLink]="['/']">Home</a></li>
+      <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">Sign up</a></li>
+      <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">Log in</a></li>
+      <li *ngIf="sessionService.user"><a [routerLink]="['/karaoke']">Karaoke</a></li>
+      <li *ngIf="sessionService.user"><a href="#" (click)="logout();">Log out</a></li>
+    </ul>
+  </nav>
+</header>
+
 <router-outlet></router-outlet>
