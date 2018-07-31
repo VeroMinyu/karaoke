@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASEURL: "http://localhost:3000"
+  BASEURL: "http://localhost:3000",
+  videoURL: "http://localhost:3000/videos"
 };
 
 /*
