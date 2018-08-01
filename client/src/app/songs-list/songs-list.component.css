@@ -1,0 +1,44 @@
+#songs {
+  padding-top: 15px;
+}
+
+.search input {
+  width: 100%;
+  padding: 0 10px;
+  border: 1px solid #424242;
+  border-radius: 3px;
+  height: 40px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.songs-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.songs-wrap .item {
+  width: calc(25% - 20px);
+  margin: 10px;
+}
+
+.songs-wrap .item:nth-child(-n+3){
+  width: calc(33.33% - 20px);
+}
+
+.songs-wrap .item h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.songs-wrap .item h4 {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.songs-wrap .no-results {
+  width: 100%;
+}

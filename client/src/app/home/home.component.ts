@@ -56,10 +56,6 @@ export class HomeComponent implements OnInit {
         break;
       }
     }
-    
-    if (this.videoplayer.nativeElement.paused) {
-      this.toggle();
-    }
   }
 
   toggle() {

@@ -1,0 +1,90 @@
+.song-form {
+  width: 640px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.song-form input,
+.song-form textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid #424242;
+  border-radius: 3px;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 0.8rem;
+}
+
+.song-form textarea {
+  resize: none;
+  height: 200px;
+  padding: 10px;
+}
+
+.song-form button {
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  background: #E91E63;
+  color: #fff;
+  width: 100%;
+}
+
+/* Clip text button */
+
+.clip-text {
+  display: inline-block;
+  font-size: 3.2rem;
+  line-height: 1;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+  /* Color fallback */
+  color: #fff;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: url("../../assets/colorful.jpg");
+}
+
+.clip-text:before,
+.clip-text:after {
+  position: absolute;
+  content: "";
+}
+
+/* Background */
+.clip-text:before {
+  z-index: -2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: inherit;
+}
+
+/* Text Background (black zone) */
+.clip-text:after {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+}
+
+/* Use Background-size cover for photo background and no-repeat background */
+.clip-text--cover,
+.clip-text--cover:before {
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: 50% 50%;
+}

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { SessionService } from '../services/session.service';
-import { Router } from '../../node_modules/@angular/router';
+import { Router, NavigationStart } from '../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,18 @@ import { Router } from '../../node_modules/@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showHeader: boolean = true;
 
-  constructor(private sessionService: SessionService, private router: Router) {
-    // if (this.router.url === "/") {
-    //   this.showHeader = false;
-    // }
+  constructor(private sessionService: SessionService, private router: Router, private renderer: Renderer2) {
+    this.router.events
+      .subscribe((event) => {
+        if (event instanceof NavigationStart) {
+          if (event.url === "/") {
+            this.renderer.addClass(document.getElementById("header"), "hide");
+          } else {
+            this.renderer.removeClass(document.getElementById("header"), "hide");
+          }
+        }
+      });
   }
 
   logout() {

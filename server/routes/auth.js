@@ -8,7 +8,7 @@ const login = (req, user) => {
   return new Promise((resolve, reject) => {
     req.login(user, err => {
       if (err) {
-        reject(new Error("Something went wrong"));
+        reject(new Error("Something went wrong."));
       } else {
         resolve(user);
       }
@@ -20,12 +20,12 @@ router.post("/signup", (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    next(new Error("You must provide valid credentials"));
+    next(new Error("You must provide valid credentials."));
   }
 
   User.findOne({ username })
     .then(foundUser => {
-      if (foundUser) throw new Error("Username already exists");
+      if (foundUser) throw new Error("Username already exists.");
 
       const salt = bcrypt.genSaltSync(10);
       const hashPass = bcrypt.hashSync(password, salt);
@@ -42,7 +42,7 @@ router.post("/signup", (req, res, next) => {
 
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, theUser, failureDetails) => {
-    if (err) next(new Error("Something went wrong"));
+    if (err) next(new Error("Something went wrong."));
     if (!theUser) next(failureDetails);
 
     login(req, theUser).then(user => res.status(200).json(req.user));
@@ -53,7 +53,7 @@ router.get("/currentuser", (req, res, next) => {
   if (req.user) {
     res.status(200).json(req.user);
   } else {
-    next(new Error("Not logged in"));
+    next(new Error("Not logged in."));
   }
 });
 

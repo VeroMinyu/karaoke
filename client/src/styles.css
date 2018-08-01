@@ -6,5 +6,116 @@
 
 body {
   font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+h2 {
+  font-family: "Bangers", cursive;
+  font-size: 2.4rem;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+input, textarea {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.gradient-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom right,
+    #2c3e50,
+    #fd746c,
+    #ff8235,
+    #ffeb3b,
+    #92fe9d,
+    #00c9ff,
+    #a044ff,
+    #e73827
+  );
+  background-repeat: no-repeat;
+  background-size: 1000% 1000%;
+  animation: gradient 100s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.gradient-bg form {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 20px;
+  width: 320px;
+  max-width: 100%;
+}
+
+.gradient-bg form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.gradient-bg form input[type=text],
+.gradient-bg form input[type=password] {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid #424242;
+  border-radius: 3px;
+  height: 30px;
+  padding: 0 10px;
+}
+
+.gradient-bg form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 3px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 400ms;
+}
+
+.gradient-bg form button:hover {
+  background: transparent;
+}
+
+form .error {
+  color: #e53935;
+  margin-bottom: 10px;
 }

@@ -1,12 +1,21 @@
-<h1>no matches, add a new song?</h1>
-<form (ngSubmit)="submitForm(myForm)" #myForm='ngForm'>
-  <input type="text" placeholder="Title" name="title" [(ngModel)]="title" required>
-  <input type="text" placeholder="Artist" name="artist" [(ngModel)]="artist" required>
-  <input type="text" placeholder="Youtube url" name="youtube_url" [(ngModel)]="youtube_url" required>
-  <input type="text" placeholder="lyrics (LRC format)" name="lyrics" [(ngModel)]="lyrics" required>
-  <button type="submit">Add</button>
-</form>
-
+<div class="song-form">
+  <h2 class="clip-text clip-text--cover">no matches, add a new song?</h2>
+  <form (ngSubmit)="submitForm(myForm)" #myForm='ngForm'>
+    <div>
+      <input type="text" placeholder="Title" name="title" [(ngModel)]="title" required>
+    </div>
+    <div>
+    	<input type="text" placeholder="Artist" name="artist" [(ngModel)]="artist" required>
+    </div>
+    <div>
+      <input type="text" placeholder="Youtube url" name="youtube_url" [(ngModel)]="youtube_url" required>
+    </div>
+    <div>
+      <textarea placeholder="lyrics (LRC format)" name="lyrics" [(ngModel)]="lyrics" required></textarea>
+    </div>
+    <button type="submit">Add</button>
+  </form>
+</div>
 <div *ngIf=notFinished>
   <app-loading></app-loading>
 </div>

@@ -1,13 +1,13 @@
-<section id="songs">
+<section id="songs" class="container">
   <div class="search">
     <input placeholder="Search..." type="text" [(ngModel)]="search">
   </div>
   <div class="songs-wrap">
-    <div *ngFor="let s of songs | filter:'title,artist':search">
-      <div *ngIf=" s == -1">
+    <div *ngFor="let s of songs | filter:'title,artist':search" [ngClass]="{'item': s!=-1, 'no-results': s==-1}">
+      <div *ngIf="s == -1">
         <app-entry-form (onChange)="updateList()"></app-entry-form>
       </div>
-      <div *ngIf="s != -1" class="item" [routerLink]="['/karaoke', s._id]">
+      <div *ngIf="s != -1" class="song" [routerLink]="['/karaoke', s._id]">
         <img src="{{s.video_img}}" alt="{{s.title}}">
         <h2>{{s.title}}</h2>
         <h4>{{s.artist}}</h4>

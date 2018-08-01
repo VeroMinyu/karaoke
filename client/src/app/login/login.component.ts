@@ -14,13 +14,19 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login(username: string, password: string) {
-    this.sessionService.login(username, password).subscribe(
-      user => {
-        this.router.navigate(['/']);
-      },
-      err => {
-        this.error = err.message;
-      }
-    );
+    this.error = "";
+    
+    if (!username || !password) {
+      this.error = "All fields are required.";
+    } else {
+      this.sessionService.login(username, password).subscribe(
+        user => {
+          this.router.navigate(['/']);
+        },
+        err => {
+          this.error = err.message;
+        }
+      );
+    }
   }
 }
