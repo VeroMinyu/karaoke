@@ -1,9 +1,16 @@
+require('dotenv').config();
+
 const express = require("express");
 const router = express.Router();
 const Song = require("../models/Song");
 const { ensureLoggedIn } = require("connect-ensure-login");
 const fs = require('fs');
 const youtubedl = require('youtube-dl');
+const youtubeSearch = require('youtube-search');
+var opts = {
+    maxResults: 10,
+    key: process.env.API_KEY
+};
 
 router.get("/", ensureLoggedIn(), (req, res, next) => {
     Song.find().sort({ popularity: -1 })
@@ -18,6 +25,13 @@ router.get("/:id", ensureLoggedIn(), (req, res, next) => {
         })
         .then(song => res.status(200).json(song))
         .catch(e => res.status(500).json({ message: e.message }))
+})
+
+router.get("/recommendations/:artist", ensureLoggedIn(), (req, res, next) => {
+    youtubeSearch(req.params.artist, opts, function(err, results) {
+        if(err) res.status(500).json({ message: e.message });
+        else res.status(200).json(results)
+      });
 })
 
 router.post("/", (req, res, next) => {
@@ -72,6 +86,8 @@ const getVideoId = url => {
     }
     return video_id;
 }
+
+
 
 
 module.exports = router;

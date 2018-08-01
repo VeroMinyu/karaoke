@@ -6,3 +6,7 @@
   <input type="text" placeholder="lyrics (LRC format)" name="lyrics" [(ngModel)]="lyrics" required>
   <button type="submit">Add</button>
 </form>
+
+<div *ngIf=notFinished>
+  <app-loading></app-loading>
+</div>

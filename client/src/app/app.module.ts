@@ -16,6 +16,7 @@ import { SongsListComponent } from './songs-list/songs-list.component';
 import { SongComponent } from './song/song.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { EntryFormComponent } from './entry-form/entry-form.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EntryFormComponent } from './entry-form/entry-form.component';
     SongsListComponent,
     SongComponent,
     FilterPipe,
-    EntryFormComponent
+    EntryFormComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

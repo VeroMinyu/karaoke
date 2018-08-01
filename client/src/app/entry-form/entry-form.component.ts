@@ -10,15 +10,19 @@ import { Router } from '@angular/router';
 })
 export class EntryFormComponent implements OnInit {
   @Output() onChange = new EventEmitter();
+
+  notFinished: boolean = false;
   constructor(public ss: SongsService, public router: Router) { }
 
   ngOnInit() {
   }
 
   submitForm(form){
+    this.notFinished = true;
     this.ss.addSong({title: form.value.title, artist: form.value.artist, youtube_url: form.value.youtube_url, lyrics: form.value.lyrics})
     .subscribe(()=>{
       this.onChange.emit();
+      this.notFinished=false;
     })
   }
 

@@ -32,6 +32,15 @@ export class SongsService {
     );
   }
 
+  getRecommendations(artist): Observable<any>{
+    return this.http.get(`${BASEURL}/api/songs/recommendations/${artist}`, this.options).pipe(
+      map((res: Response) =>{
+        return res.json();
+      }),
+      catchError(e=> of(this.errorHandler(e)))
+    )
+  }
+
   addSong(song: any): Observable<object> {
     return this.http.post(`${BASEURL}/api/songs`, song, this.options).pipe(
         map((res: Response) => {

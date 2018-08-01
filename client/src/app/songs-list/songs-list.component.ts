@@ -20,7 +20,6 @@ export class SongsListComponent implements OnInit {
 
   updateList() {
     this.songsService.getSongs().subscribe(songs => {
-      console.log('enter')
       this.songs = songs;
     });
   }

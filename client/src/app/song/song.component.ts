@@ -14,6 +14,8 @@ import { environment} from "../../environments/environment"
 })
 export class SongComponent implements OnInit {
   song: any;
+  recommendations : any;
+  
   @ViewChild('videoPlayer') videoplayer: any;
   videoSource: string = "";
   pauseClass: string = "fa-play-circle";
@@ -32,7 +34,14 @@ export class SongComponent implements OnInit {
         this.song = song;
         this.videoSource = `${environment.videoURL}${song.video_name}`;
         this.lyrics = this.song.lyrics;
+
+        this.songsService.getRecommendations(this.song.artist).subscribe(list=>{
+          this.recommendations=list;
+          console.log(list)
+        }) 
       });
+
+
     });
   }
 
@@ -73,4 +82,5 @@ export class SongComponent implements OnInit {
       }
     }, 1000);
   }
+
 }
