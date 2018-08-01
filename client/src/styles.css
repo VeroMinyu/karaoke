@@ -19,6 +19,22 @@ button {
   outline: none;
 }
 
+input, textarea {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .gradient-bg {
   position: fixed;
   left: 0;

@@ -6,6 +6,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 header.hide {
