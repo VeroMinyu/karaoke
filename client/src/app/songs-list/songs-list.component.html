@@ -3,7 +3,7 @@
     <input placeholder="Search..." type="text" [(ngModel)]="search">
   </div>
   <div class="songs-wrap">
-    <div class="item" *ngFor="let s of songs | filter:'title,artist':search">
+    <div *ngFor="let s of songs | filter:'title,artist':search" [ngClass]="{'item': s!=-1, 'no-results': s==-1}">
       <div *ngIf="s == -1">
         <app-entry-form (onChange)="updateList()"></app-entry-form>
       </div>
