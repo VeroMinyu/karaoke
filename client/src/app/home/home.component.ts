@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { environment} from "../../environments/environment";
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   pauseClass: string = "fa-pause-circle";
   volumeClass: string = "fa-volume-up";
 
-  constructor() { }
+  constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
     const baseVideosUrl = environment.videoURL;
