@@ -1,5 +1,6 @@
 #songs {
   padding-top: 15px;
+  padding-bottom: 30px;
 }
 
 .search input {
@@ -9,7 +10,6 @@
   border-radius: 3px;
   height: 40px;
   font-size: 1rem;
-  margin-bottom: 15px;
 }
 
 .songs-wrap {

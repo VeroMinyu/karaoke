@@ -5,14 +5,18 @@
   </video>
   <div class="actions">
     <div *ngIf="!sessionService.user">
-      <div class="clip-text clip-text--cover no-link">Karaoke</div>
+      <div class="clip-text no-link">
+        <img src="../../assets/logo.png" alt="Karaoke">
+      </div>
       <div>
         <a class="home-btn" [routerLink]="['/signup']">Sign up</a>
         <a class="home-btn green" [routerLink]="['/login']">Log in</a>
       </div>
     </div>
     <div *ngIf="sessionService.user">
-      <a class="clip-text clip-text--cover" [routerLink]="['/karaoke']">Karaoke</a>
+      <a class="clip-text" [routerLink]="['/karaoke']">
+        <img src="../../assets/logo.png" alt="Karaoke">
+      </a>
     </div>
   </div>
   <div id="video-controls">

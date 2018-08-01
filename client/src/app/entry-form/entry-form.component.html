@@ -1,6 +1,7 @@
 <div class="song-form">
   <h2 class="clip-text clip-text--cover">no matches, add a new song?</h2>
   <form (ngSubmit)="submitForm(myForm)" #myForm='ngForm'>
+    <p class="error" *ngIf="error">{{error}}</p>
     <div>
       <input type="text" placeholder="Title" name="title" [(ngModel)]="title" required>
     </div>
@@ -16,6 +17,6 @@
     <button type="submit">Add</button>
   </form>
 </div>
-<div *ngIf=notFinished>
+<div *ngIf="notFinished">
   <app-loading></app-loading>
 </div>

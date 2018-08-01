@@ -1,7 +1,8 @@
 header {
   position: relative;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.7);
+  background: url("../assets/abstract.png") center no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,6 +12,10 @@ header {
 
 header.hide {
   display: none;
+}
+
+header.white-bg {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 header #logo {

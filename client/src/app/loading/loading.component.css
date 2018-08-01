@@ -1,124 +1,89 @@
-/* Pika */
-.loading {
-    background-color: #FFF;
-    width: 100%;
-    display: fixed
+.loading-wrp {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.8);
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Pika */
+
 .loading img {
-    display: block;
-    min-height: 209px;
-    min-width: 200px;
+  display: block;
+  min-height: 209px;
+  min-width: 200px;
+  margin-bottom: 20px;
 }
 
 @keyframes mouseAnimation {
-    
-    from {
-        width: 25px;
-        height: 25px
-    }
-    
-    to {
-        width: 15px;
-        height: 15px
-    }
-    
+  from {
+    width: 25px;
+    height: 25px;
+  }
+
+  to {
+    width: 15px;
+    height: 15px;
+  }
 }
 
-
 /* Bar */
-@-webkit-keyframes loader {
-    0% {
-      width: 0;
-    }
-    20% {
-      width: 10%;
-    }
-    25% {
-      width: 24%;
-    }
-    43% {
-      width: 41%;
-    }
-    56% {
-      width: 50%;
-    }
-    66% {
-      width: 52%;
-    }
-    71% {
-      width: 60%;
-    }
-    75% {
-      width: 76%;
-    }
-    94% {
-      width: 86%;
-    }
-    100% {
-      width: 100%;
-    }
-  }
-  
-  @keyframes loader {
-    0% {
-      width: 0;
-    }
-    20% {
-      width: 10%;
-    }
-    25% {
-      width: 24%;
-    }
-    43% {
-      width: 41%;
-    }
-    56% {
-      width: 50%;
-    }
-    66% {
-      width: 52%;
-    }
-    71% {
-      width: 60%;
-    }
-    75% {
-      width: 76%;
-    }
-    94% {
-      width: 86%;
-    }
-    100% {
-      width: 100%;
-    }
-  }
-  .progress-bar {
-    border-radius: 60px;
-    overflow: hidden;
-    width: 100%;
-  }
-  .progress-bar span {
-    display: block;
-  }
-  
-  .bar {
-    background: rgba(0, 0, 0, 0.075);
-  }
-  
-  .progress {
-    -webkit-animation: loader 8s ease infinite;
-            animation: loader 8s ease infinite;
-    background: #75b800;
-    color: #fff;
-    padding: 5px;
+
+.progress-bar {
+  border-radius: 60px;
+  overflow: hidden;
+  width: 50%;
+}
+.progress-bar span {
+  display: block;
+}
+.bar {
+  background: rgba(0, 0, 0, 0.075);
+}
+.progress {
+  -webkit-animation: loader 8s ease infinite;
+  animation: loader 8s ease infinite;
+  background: #75b800;
+  color: #fff;
+  padding: 5px;
+  width: 0;
+}
+
+@keyframes loader {
+  0% {
     width: 0;
   }
-  
-  .progress-bar {
-    left: 50%;
-    max-width: 50%;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-            transform: translate3d(-50%, -50%, 0);
+  20% {
+    width: 10%;
   }
+  25% {
+    width: 24%;
+  }
+  43% {
+    width: 41%;
+  }
+  56% {
+    width: 50%;
+  }
+  66% {
+    width: 52%;
+  }
+  71% {
+    width: 60%;
+  }
+  75% {
+    width: 76%;
+  }
+  94% {
+    width: 86%;
+  }
+  100% {
+    width: 100%;
+  }
+}
