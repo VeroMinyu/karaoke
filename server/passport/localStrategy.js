@@ -6,8 +6,8 @@ const bcrypt = require('bcrypt');
 passport.use(new LocalStrategy((username, password, next) => {
     User.findOne({username})
     .then( user =>{
-        if (!user) throw new Error("Incorrect Username");
-        if (!bcrypt.compareSync(password, user.password)) throw new Error("Incorrect Password");
+        if (!user) throw new Error("Incorrect username.");
+        if (!bcrypt.compareSync(password, user.password)) throw new Error("Incorrect password.");
         
         return next(null, user);
     })
