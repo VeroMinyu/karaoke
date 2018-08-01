@@ -8,7 +8,7 @@ const fs = require('fs');
 const youtubedl = require('youtube-dl');
 const youtubeSearch = require('youtube-search');
 var opts = {
-    maxResults: 10,
+    maxResults: 15,
     key: process.env.API_KEY
 };
 
@@ -28,17 +28,35 @@ router.get("/:id", ensureLoggedIn(), (req, res, next) => {
 })
 
 router.get("/recommendations/:artist", ensureLoggedIn(), (req, res, next) => {
-    youtubeSearch(req.params.artist, opts, function(err, results) {
-        if(err) res.status(500).json({ message: e.message });
-        else res.status(200).json(results)
-      });
+    youtubeSearch(req.params.artist, opts, function (err, results) {
+        if (err) res.status(500).json({ message: err.message });
+        else {
+            var cleaned = results.filter(song => song.kind == "youtube#video")
+            var sorted = [];
+            Song.find({})
+            .then((data)=>{
+                var allVideoIds = data.map(each => each.video_id)
+                for (var i = 0; i < cleaned.length; i++) {
+                    if (allVideoIds.includes(cleaned[i].id)) {
+                        var index = allVideoIds.indexOf(cleaned[i].id);
+                        sorted.unshift(data[index])
+                    } else {
+                        sorted.push(cleaned[i])
+                    }
+                }
+                return res.status(200).json(sorted);
+            })
+            .catch(e => res.status(500).json({ message: e.message }))
+        }
+    });
 })
 
 router.post("/", (req, res, next) => {
     const { title, artist, youtube_url, lyrics } = req.body;
 
     const lyricsReady = transform(lyrics)
-    const imgReady = `https://img.youtube.com/vi/${getVideoId(youtube_url)}/0.jpg`
+    const video_id = getVideoId(youtube_url);
+    const imgReady = `https://img.youtube.com/vi/${video_id}/0.jpg`
 
     youtubedl.getInfo(youtube_url, function (err, info) {
         if (err) {
@@ -50,6 +68,7 @@ router.post("/", (req, res, next) => {
                 const newSong = new Song({
                     title,
                     artist,
+                    video_id,
                     video_name: `${info.title}.mp4`,
                     video_img: imgReady,
                     lyrics: lyricsReady
@@ -86,8 +105,6 @@ const getVideoId = url => {
     }
     return video_id;
 }
-
-
 
 
 module.exports = router;

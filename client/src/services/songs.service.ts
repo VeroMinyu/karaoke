@@ -41,7 +41,7 @@ export class SongsService {
     )
   }
 
-  addSong(song: any): Observable<object> {
+  addSong(song: any): Observable<any> {
     return this.http.post(`${BASEURL}/api/songs`, song, this.options).pipe(
         map((res: Response) => {
           return res.json();

@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SongsService } from '../../services/songs.service';
 import { ActivatedRoute } from '@angular/router';
-import { environment} from "../../environments/environment"
+import { environment } from "../../environments/environment";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-song',
@@ -14,8 +15,8 @@ import { environment} from "../../environments/environment"
 })
 export class SongComponent implements OnInit {
   song: any;
-  recommendations : any;
-  
+  recommendations: any;
+
   @ViewChild('videoPlayer') videoplayer: any;
   videoSource: string = "";
   pauseClass: string = "fa-play-circle";
@@ -26,22 +27,26 @@ export class SongComponent implements OnInit {
   line2: string = "";
   lyrics: Array<any>;
 
-  constructor(private songsService: SongsService, private route: ActivatedRoute) { }
+  constructor(private songsService: SongsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.songsService.getSong(params.id).subscribe(song => {
         this.song = song;
         this.videoSource = `${environment.videoURL}${song.video_name}`;
+        if (this.videoplayer) {
+        this.videoplayer.nativeElement.src = this.videoSource;
+        }
         this.lyrics = this.song.lyrics;
-
-        this.songsService.getRecommendations(this.song.artist).subscribe(list=>{
-          this.recommendations=list;
-          console.log(list)
-        }) 
+        this.songsService.getRecommendations(this.song.artist).subscribe(list => {
+          for (var i = 0; i < list.length; i++) {
+            if (this.song.video_id == list[i].video_id) {
+              list.splice(i, 1)
+            }
+          }
+          this.recommendations = list;
+        })
       });
-
-
     });
   }
 
@@ -60,11 +65,11 @@ export class SongComponent implements OnInit {
   karaoke() {
     this.interval = setInterval(() => {
       let changed = false;
-    
+
       if (!this.currentTime || this.lyrics[0].time <= this.currentTime) {
         changed = true;
       }
-    
+
       if (changed) {
         if (!this.currentTime) {
           this.line1 = " ";
@@ -75,7 +80,7 @@ export class SongComponent implements OnInit {
           this.lyrics.shift();
         }
       }
-    
+
       this.currentTime++;
       if (this.lyrics.length === 0) {
         clearInterval(this.interval);
@@ -83,4 +88,15 @@ export class SongComponent implements OnInit {
     }, 1000);
   }
 
+/*   redirectToSong(id) {
+    this.router.navigate(['karaoke', id]) */
+/*     this.songsService.getSong(id).subscribe(song => {
+      console.log(song)
+      console.log(this.videoSource)
+      this.song = song;
+      this.videoSource = `${environment.videoURL}${song.video_name}`;
+      this.lyrics = this.song.lyrics;
+    }) */
+  
+  
 }

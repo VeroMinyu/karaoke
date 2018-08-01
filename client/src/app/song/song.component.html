@@ -3,22 +3,27 @@
   <h2>{{song.artist}}</h2>
   <div class="video-wrap">
     <video id="myVideo" #videoPlayer>
-      <source src={{videoSource}} type="video/mp4">
-      Your browser does not support HTML5 video.
+      <source src={{videoSource}} type="video/mp4"> Your browser does not support HTML5 video.
     </video>
     <div id="video-controls">
-      <button (click)="toggle()"><i class="fa {{pauseClass}}"></i></button>
+      <button (click)="toggle()">
+        <i class="fa {{pauseClass}}"></i>
+      </button>
     </div>
   </div>
   <p class="karaoke active">{{line1}}</p>
   <p class="karaoke">{{line2}}</p>
 </section>
 
-<!-- <div class="recommendation-wrap">
-  <div *ngFor="let r of recommendations" [routerLink]="['/karaoke']">
-      <img src="{{r.video_img}}" alt="{{s.title}}">
-      <h2>{{s.title}}</h2>
-      <h4>{{s.artist}}</h4>
+<div class="recommendation-wrap">
+  <div *ngFor="let r of recommendations">
+    <div *ngIf="r._id" [routerLink]="['/karaoke', r._id]">
+      <img src="{{r.video_img}}" alt="{{r.title}}">
+      <h2>{{r.title}}</h2>
+    </div>
+    <div *ngIf="!r._id" [routerLink]="['/karaoke', 'form', song.artist, r.id, r.title]">
+      <img src="{{r.thumbnails.high.url}}" alt="{{r.title}}">
+      <h2>{{r.title}}</h2>
     </div>
   </div>
-</div> -->
+</div>

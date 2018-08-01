@@ -40,11 +40,11 @@ export class HomeComponent implements OnInit {
         break;
       }
       case 4: {
-        this.videoSource = `${baseVideosUrl}Justin Bieber - Sorry (PURPOSE  - The Movement)-fRh_vgS2dFE.mp4#t=52`;
+        this.videoSource = `${baseVideosUrl}Justin Bieber - Sorry (PURPOSE  - The Movement)-fRh_vgS2dFE.mp4#t=72`;
         break;
       }
       case 5: {
-        this.videoSource = `${baseVideosUrl}Leiva - La Lluvia en los Zapatos-vtY8YY-N9eY.mp4`;
+        this.videoSource = `${baseVideosUrl}Leiva - La Lluvia en los Zapatos-vtY8YY-N9eY.mp4#t=8`;
         break;
       }
       case 6:{

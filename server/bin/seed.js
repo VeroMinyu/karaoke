@@ -25,8 +25,10 @@ const songs = [
         title: "Shape of you",
         artist: "Ed Sheeran",
         popularity: 10,
+        video_id: "JGwWNGJdvx8",
         video_name: "Ed Sheeran - Shape of You [Official Video]-JGwWNGJdvx8.mp4",
         video_img: "https://img.youtube.com/vi/JGwWNGJdvx8/0.jpg",
+        offset: -1,
         lyrics: transform(`[00:14.60]The club isn't the best place to find a lover
 [00:18.11]So the bar is where I go
 [00:20.34]Me and my friends at the table doing shots
@@ -123,6 +125,7 @@ const songs = [
         title: "Believer",
         artist: "Imagine Dragons",
         popularity: 9,
+        video_id: "7wtfhZwyrcc",
         video_name: "Imagine Dragons - Believer-7wtfhZwyrcc.mp4",
         video_img: "https://img.youtube.com/vi/7wtfhZwyrcc/0.jpg",
         lyrics: transform(`[00:07.27]First things first
@@ -189,6 +192,7 @@ const songs = [
         title: "X (EQUIS)",
         artist: "Nicky Jam x J. Balvin",
         popularity: 8,
+        video_id: "_I_D_8Z4sJE",
         video_name: "Nicky Jam x J. Balvin - X (EQUIS) _ Video Oficial _ Prod. Afro Bros & Jeon-_I_D_8Z4sJE.mp4",
         video_img: "https://img.youtube.com/vi/_I_D_8Z4sJE/0.jpg",
         lyrics: transform(`[00:05.85]Aquel día te vi y tu energía sentí
@@ -239,6 +243,7 @@ const songs = [
         title: "No Hay Nadie Más",
         artist: "Sebastián Yatra",
         popularity: 7,
+        video_id: "sD9_l3oDOag",
         video_name: "Sebastián Yatra - No Hay Nadie Más-sD9_l3oDOag.mp4",
         video_img: "https://img.youtube.com/vi/sD9_l3oDOag/0.jpg",
         offset: 19,
@@ -281,6 +286,7 @@ const songs = [
         title: "What Lovers Do ft.SZA",
         artist: "Maroon 5",
         popularity: 6,
+        video_id: "5Wiio4KoGe8",
         video_name: "Maroon 5 - What Lovers Do ft. SZA-5Wiio4KoGe8.mp4",
         video_img: "https://img.youtube.com/vi/5Wiio4KoGe8/0.jpg",
         lyrics: transform(`[00:08.93]Say say say,
@@ -413,6 +419,7 @@ const songs = [
         title: "Por Fin Te Encontré ft. Juan Magan, Sebastian Yatra",
         artist: "Cali Y El Dandee",
         popularity: 5,
+        video_id: "_kxz7WX4mLU",
         video_name: "Cali Y El Dandee - Por Fin Te Encontré ft. Juan Magan, Sebastian Yatra-_kxz7WX4mLU.mp4",
         video_img: "https://img.youtube.com/vi/_kxz7WX4mLU/0.jpg",
         lyrics: transform(`[00:36.62]Ohoh hee ouoh
@@ -512,6 +519,7 @@ const songs = [
         title: "Despacito ft. Daddy Yankee",
         artist: "Luis Fonsi",
         popularity: 11,
+        video_id: "kJQP7kiw5Fk",
         video_name: "Luis Fonsi - Despacito ft. Daddy Yankee-kJQP7kiw5Fk.mp4",
         video_img: "https://img.youtube.com/vi/kJQP7kiw5Fk/0.jpg",
         lyrics: transform(`[00:28.09]Ay
