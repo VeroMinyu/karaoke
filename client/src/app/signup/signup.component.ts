@@ -14,13 +14,23 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
 
   signup(username: string, password: string) {
-    this.sessionService.signup(username, password).subscribe(
-      user => {
-        this.router.navigate(['/']);
-      },
-      err => {
-        this.error = err.message;
-      }
-    );
+    this.error = "";
+    
+    if (!username || !password) {
+      this.error = "All fields are required.";
+    } else if (password.length < 6) {
+      this.error = "Password should has at least 6 characters.";
+    } else if (username.length < 6) {
+      this.error = "Username should has at least 6 characters.";
+    } else {
+      this.sessionService.signup(username, password).subscribe(
+        user => {
+          this.router.navigate(['/']);
+        },
+        err => {
+          this.error = err.message;
+        }
+      );
+    }
   }
 }

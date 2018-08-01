@@ -61,7 +61,8 @@ button {
   background: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
   padding: 20px;
-  min-width: 320px;
+  width: 320px;
+  max-width: 100%;
 }
 
 .gradient-bg form label {
@@ -69,7 +70,8 @@ button {
   margin-bottom: 5px;
 }
 
-.gradient-bg form input {
+.gradient-bg form input[type=text],
+.gradient-bg form input[type=password] {
   display: block;
   margin-bottom: 10px;
   width: 100%;
