@@ -17,6 +17,8 @@ import { SongComponent } from './song/song.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { EntryFormComponent } from './entry-form/entry-form.component';
 import { LoadingComponent } from './loading/loading.component';
+import { IsLoggedOutGuardService } from "../guards/isLoggedOut.guard";
+import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,11 @@ import { LoadingComponent } from './loading/loading.component';
     FormsModule,
     HttpModule
   ],
-  providers: [SessionService],
+  providers: [
+    SessionService,
+    IsLoggedInGuardService,
+    IsLoggedOutGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

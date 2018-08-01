@@ -3,6 +3,7 @@
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
+  margin-top: 20px;
 }
 
 .song-form input,
@@ -47,6 +48,7 @@
   text-align: center;
   /* Color fallback */
   color: #fff;
+  padding: 0 20px;
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

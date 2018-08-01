@@ -13,10 +13,13 @@ export class AppComponent {
     this.router.events
       .subscribe((event) => {
         if (event instanceof NavigationStart) {
+          this.renderer.removeClass(document.getElementById("header"), "hide");
+          this.renderer.removeClass(document.getElementById("header"), "white-bg");
+          
           if (event.url === "/") {
             this.renderer.addClass(document.getElementById("header"), "hide");
-          } else {
-            this.renderer.removeClass(document.getElementById("header"), "hide");
+          } else if (event.url === "/login" || event.url === "/signup") {
+            this.renderer.addClass(document.getElementById("header"), "white-bg");
           }
         }
       });

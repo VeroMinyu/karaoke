@@ -3,7 +3,7 @@ import { Http, Response } from "@angular/http";
 import { environment } from "../environments/environment";
 
 import { map, catchError } from "rxjs/operators";
-import { Observable } from "../../node_modules/rxjs";
+import { Observable } from "rxjs";
 import { of } from "rxjs";
 
 const { BASEURL } = environment;
@@ -28,7 +28,7 @@ export class SessionService {
         this.user = res.json();
         return this.user;
       }),
-      catchError(e => of(this.errorHandler(e)))
+      catchError(e => of(null))
     );
   }
 
