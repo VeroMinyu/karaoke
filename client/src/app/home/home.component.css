@@ -1,92 +1,113 @@
 #home,
 #myVideo {
-    position: fixed;
-    left: 0;
-    top: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 #myVideo {
-    min-width: 100vw;
-    min-height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 #video-controls {
-    position: absolute;
-    z-index: 2;
-    left: 20px;
-    top: 90vh;
-    width: 150px;
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  top: 90vh;
+  width: 150px;
 }
 
 #video-controls button {
-    background: none;
-    border: none;
-    margin-right: 20px;
-    color: #fff;
-    font-size: 46px;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    outline: none;
-    text-align: left;
+  background: none;
+  border: none;
+  margin-right: 20px;
+  color: #fff;
+  font-size: 46px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  outline: none;
+  text-align: left;
 }
 
 #video-controls button i[class^="fa fa-volume"] {
-    width: 45px;
+  width: 45px;
+}
+
+#home .actions {
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Karaoke button */
-
-/* Clip text element */
 .clip-text {
-    font-size: 6em;
-    font-weight: bold;
-    line-height: 1;
-    position: relative;
-    display: inline-block;
-    margin: .25em;
-    padding: .5em .75em;
-    text-align: center;
-    /* Color fallback */
-    color: #fff;
-    -webkit-background-clip: text;
+  font-family: "Bangers", cursive;
+  font-size: 6rem;
+  line-height: 1;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
 
-    -webkit-text-fill-color: transparent;
+  /* Color fallback */
+  color: #fff;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: url("../../assets/abstract.png");
 }
 
-.clip-text:before,
-.clip-text:after {
-    position: absolute;
-    content: '';
-}
-
-/* Background */
 .clip-text:before {
-    z-index: -2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: inherit;
+  position: absolute;
+  content: "";
 }
 
-/* Text Background (black zone) */
-.clip-text:after {
-    position: absolute;
-    z-index: -1;
-    top: .125em;
-    right: .125em;
-    bottom: .125em;
-    left: .125em;
-    background-color: #000;
-}
-
-.clip-text_fourteen {
-    background-image: url(https://4kwallpapers.co/wp-content/uploads/2015/09/abstract-colorful-vectors-design-4k-wallpapers.png);
+.clip-text:before {
+  z-index: -2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: inherit;
 }
 
 .clip-text--cover,
 .clip-text--cover:before {
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-            background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
   background-position: 50% 50%;
+}
+
+.clip-text.no-link {
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+}
+
+/* Log in / Sign up button */
+
+.home-btn {
+  display: inline-block;
+  position: relative;
+  padding: 15px 40px;
+  font-size: 1.4rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.home-btn.green {
+  background: #7fc400;
+  color: #fff;
+}
+
+.home-btn:hover {
+  opacity: 0.8;
 }

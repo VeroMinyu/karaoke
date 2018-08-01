@@ -8,6 +8,10 @@ header {
   padding: 10px;
 }
 
+header.hide {
+  display: none;
+}
+
 header #logo {
   width: 100px;
 }
