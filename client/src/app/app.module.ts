@@ -15,6 +15,7 @@ import { SessionService } from '../services/session.service';
 import { SongsListComponent } from './songs-list/songs-list.component';
 import { SongComponent } from './song/song.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { EntryFormComponent } from './entry-form/entry-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     SignupComponent,
     SongsListComponent,
     SongComponent,
-    FilterPipe
+    FilterPipe,
+    EntryFormComponent
   ],
   imports: [
     BrowserModule,
