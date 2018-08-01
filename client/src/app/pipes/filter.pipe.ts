@@ -16,7 +16,7 @@ export class FilterPipe implements PipeTransform {
     const fields = field.split(",");
 
     const myPattern = new RegExp(value, 'i');
-    return items.filter(it => {
+    const result= items.filter(it => {
       let match = false;
       for (let i = 0; i < fields.length; i++) {
         if (it[fields[i]].match(myPattern)) {
@@ -26,6 +26,12 @@ export class FilterPipe implements PipeTransform {
       
       return match;
     });
+
+    if (result.length==0){
+      return [-1];
+    } else{
+      return result;
+    }
   }
 
 }
