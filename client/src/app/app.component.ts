@@ -8,7 +8,13 @@ import { Router } from '../../node_modules/@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private sessionService: SessionService, private router: Router) { }
+  showHeader: boolean = true;
+
+  constructor(private sessionService: SessionService, private router: Router) {
+    // if (this.router.url === "/") {
+    //   this.showHeader = false;
+    // }
+  }
 
   logout() {
     this.sessionService.logout().subscribe(() => {

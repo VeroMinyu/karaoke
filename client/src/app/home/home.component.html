@@ -3,6 +3,15 @@
     <source src={{videoSource}} type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
+  <div class="actions">
+    <div *ngIf="!sessionService.user">
+      <a [routerLink]="['/signup']">Sign up</a>
+      <a [routerLink]="['/login']">Log in</a>
+    </div>
+    <div *ngIf="sessionService.user">
+      <a class="clip-text clip-text_fourteen clip-text--cover" [routerLink]="['/karaoke']">Karaoke</a>
+    </div>
+  </div>
   <div id="video-controls">
     <button (click)="toggle()"><i class="fa {{pauseClass}}"></i></button>
     <button (click)="toggleSound()"><i class="fa {{volumeClass}}"></i></button>
