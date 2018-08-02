@@ -19,6 +19,7 @@ import { EntryFormComponent } from './entry-form/entry-form.component';
 import { LoadingComponent } from './loading/loading.component';
 import { IsLoggedOutGuardService } from "../guards/isLoggedOut.guard";
 import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
+import { TestVideoComponent } from './test-video/test-video.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
     SongComponent,
     FilterPipe,
     EntryFormComponent,
-    LoadingComponent
+    LoadingComponent,
+    TestVideoComponent
   ],
   imports: [
     BrowserModule,
