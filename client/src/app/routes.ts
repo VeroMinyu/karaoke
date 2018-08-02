@@ -6,6 +6,7 @@ import { SongsListComponent } from "./songs-list/songs-list.component";
 import { SongComponent } from "./song/song.component";
 import { EntryFormComponent } from "./entry-form/entry-form.component";
 import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
+import { TestVideoComponent } from "./test-video/test-video.component";
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "karaoke", component: SongsListComponent, canActivate: [ IsLoggedInGuardService ] },
   { path: "karaoke/form/:artist/:id/:title", component: EntryFormComponent, canActivate: [ IsLoggedInGuardService ] },
-  { path: "karaoke/:id", component: SongComponent, canActivate: [ IsLoggedInGuardService ] }
+  { path: "karaoke/:id", component: SongComponent, canActivate: [ IsLoggedInGuardService ] },
+  { path: "test", component: TestVideoComponent }
 ];

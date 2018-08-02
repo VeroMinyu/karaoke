@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SongsService } from '../../services/songs.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from "../../environments/environment";
