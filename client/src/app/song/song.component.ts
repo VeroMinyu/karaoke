@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SongsService } from '../../services/songs.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from "../../environments/environment";
@@ -19,12 +19,13 @@ export class SongComponent implements OnInit {
 
   @ViewChild('videoPlayer') videoplayer: any;
   videoSource: string = "";
+  height: number = 0;
   pauseClass: string = "fa-play-circle";
 
   interval: any;
-  currentTime: number = 0;
-  line1: string = "";
-  line2: string = "";
+  currentTime: number;
+  line1: string;
+  line2: string;
   lyrics: Array<any>;
 
   constructor(private songsService: SongsService, private route: ActivatedRoute, private router: Router) { }
@@ -32,10 +33,12 @@ export class SongComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.songsService.getSong(params.id).subscribe(song => {
+        this.reset();
+  
         this.song = song;
         this.videoSource = `${environment.videoURL}${song.video_name}`;
         if (this.videoplayer) {
-        this.videoplayer.nativeElement.src = this.videoSource;
+          this.videoplayer.nativeElement.src = this.videoSource;
         }
         this.lyrics = this.song.lyrics;
         this.songsService.getRecommendations(this.song.artist).subscribe(list => {
@@ -48,6 +51,24 @@ export class SongComponent implements OnInit {
         })
       });
     });
+  }
+
+  ngAfterViewChecked() {
+    if (this.videoplayer) {
+      setTimeout(() => {
+        this.height = this.videoplayer.nativeElement.clientHeight;
+      });
+    }
+  }
+
+  reset() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+    this.pauseClass = "fa-play-circle";
+    this.currentTime = 0;
+    this.line1 = "";
+    this.line2 = "";
   }
 
   toggle() {
@@ -87,16 +108,4 @@ export class SongComponent implements OnInit {
       }
     }, 1000);
   }
-
-/*   redirectToSong(id) {
-    this.router.navigate(['karaoke', id]) */
-/*     this.songsService.getSong(id).subscribe(song => {
-      console.log(song)
-      console.log(this.videoSource)
-      this.song = song;
-      this.videoSource = `${environment.videoURL}${song.video_name}`;
-      this.lyrics = this.song.lyrics;
-    }) */
-  
-  
 }

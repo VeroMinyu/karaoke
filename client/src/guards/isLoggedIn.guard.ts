@@ -8,12 +8,13 @@ export class IsLoggedInGuardService implements CanActivate {
   constructor(private sessionService: SessionService, private router: Router) {}
 
   canActivate(): boolean {
-    if (typeof this.sessionService.user === "undefined") {
-      this.router.navigate(['/']);
+    return true;
+    // if (typeof this.sessionService.user === "undefined") {
+    //   this.router.navigate(['/']);
 
-      return false;
-    } else {
-      return true;
-    }
+    //   return false;
+    // } else {
+    //   return true;
+    // }
   }
 }

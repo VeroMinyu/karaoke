@@ -9,6 +9,7 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+h1,
 h2 {
   font-family: "Bangers", cursive;
   font-size: 2.4rem;
@@ -119,4 +120,58 @@ img {
 form .error {
   color: #e53935;
   margin-bottom: 10px;
+}
+
+/* Clip text */
+
+.clip-text {
+  display: inline-block;
+  font-size: 3.2rem;
+  line-height: 1;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+  /* Color fallback */
+  color: #fff;
+  padding: 0 20px;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: url("./assets/colorful.jpg");
+}
+
+.clip-text:before,
+.clip-text:after {
+  position: absolute;
+  content: "";
+}
+
+/* Background */
+.clip-text:before {
+  z-index: -2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: inherit;
+}
+
+/* Text Background (black zone) */
+.clip-text:after {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+}
+
+/* Use Background-size cover for photo background and no-repeat background */
+.clip-text--cover,
+.clip-text--cover:before {
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: 50% 50%;
 }
