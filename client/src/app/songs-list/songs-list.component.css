@@ -87,6 +87,7 @@
 .hvr-grow-shadow:hover, 
 .hvr-grow-shadow:focus, 
 .hvr-grow-shadow:active {
+  outline: none;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
