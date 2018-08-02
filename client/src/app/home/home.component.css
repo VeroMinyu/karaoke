@@ -49,12 +49,12 @@
   align-items: center;
 }
 
-.clip-text {
+.clip-img {
   position: relative;
   z-index: 5;
 }
 
-.clip-text.no-link {
+.clip-img.no-link {
   margin-bottom: 20px;
   display: block;
   text-align: center;
