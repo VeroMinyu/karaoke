@@ -20,6 +20,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { IsLoggedOutGuardService } from "../guards/isLoggedOut.guard";
 import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
 import { TestVideoComponent } from './test-video/test-video.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TestVideoComponent } from './test-video/test-video.component';
     FilterPipe,
     EntryFormComponent,
     LoadingComponent,
-    TestVideoComponent
+    TestVideoComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
