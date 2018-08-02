@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
         break;
       }
       case 5: {
-        this.videoSource = `${baseVideosUrl}Leiva - La Lluvia en los Zapatos-vtY8YY-N9eY.mp4#t=8`;
+        this.videoSource = `${baseVideosUrl}Leiva - La Lluvia en los Zapatos-vtY8YY-N9eY.mp4#t=99`;
         break;
       }
       case 6:{
