@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
         break;
       }
       case 2: {
-        this.videoSource = `${baseVideosUrl}Nicky Jam x J. Balvin - X (EQUIS) _ Video Oficial _ Prod. Afro Bros & Jeon-_I_D_8Z4sJE.mp4#t=21`;
+        this.videoSource = `${baseVideosUrl}Nicky Jam x J. Balvin - X (EQUIS) _ Video Oficial _ Prod. Afro Bros & Jeon-_I_D_8Z4sJE.mp4#t=25`;
         break;
       }
       case 3: {
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
         break;
       }
       case 7:{
-        this.videoSource = `${baseVideosUrl}Luis Fonsi - Despacito ft. Daddy Yankee-kJQP7kiw5Fk.mp4#t=80`;
+        this.videoSource = `${baseVideosUrl}Luis Fonsi - Despacito ft. Daddy Yankee-kJQP7kiw5Fk.mp4#t=84`;
         break;
       }
     }
