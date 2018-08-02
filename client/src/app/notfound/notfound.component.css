@@ -1,8 +1,7 @@
 body {
     background-color: #E9E9E9;
     color: #333;
-    font-family:"Lucida handwriting", "Snell Roundhand", "Helvetica Neue",Arial,Helvetica,sans-serif;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .amp {
@@ -52,13 +51,12 @@ a img {
 
 .photo-album {
     position: relative;
-    width: 100%;
+    width: 95%;
     margin: 0 auto;
     max-width: 70em;
     height: 450px;
     margin-top: 10em;
     min-width: 800px;
-    max-width: 900px;
 }
 .photo-album .polaroid {
     position: absolute;
@@ -99,8 +97,8 @@ a img {
     height: 300px;
 }
 .photo-album .img1 {
-    bottom: 10px;
-    right: 365px;
+    bottom: -20px;
+    right: 280px;
     -webkit-transform: rotate(10deg);
     -moz-transform: rotate(10deg);
     transform: rotate(10deg);
@@ -113,46 +111,46 @@ a img {
     transform: rotate(-4deg);
 }
 .photo-album .img3 {
-    left: 400px;
-    top: 0;
+    left: 360px;
+    top: -60px;
     -webkit-transform: rotate(-5deg);
     -moz-transform: rotate(-5deg);
     transform: rotate(-5deg);
 }
 .photo-album .img4 {
-    top: 10px;
-    left: 495px;
+    top: -50px;
+    left: 520px;
     -webkit-transform: rotate(-20deg);
     -moz-transform: rotate(-20deg);
     transform: rotate(-20deg);
 }
 .photo-album .img5 {
     bottom: 0;
-    right: 0;
+    right: -10px;
     -webkit-transform: rotate(1deg);
     -moz-transform: rotate(1deg);
     transform: rotate(1deg);
 }
 .photo-album .img6 {
-    bottom: 10px;
+    top: -100px;
     right: 156px;
     -webkit-transform: rotate(6deg);
     -moz-transform: rotate(6deg);
     transform: rotate(6deg);
 }
 .photo-album .img7 {
-    bottom:0;
-    left:400px;
+    bottom:-40px;
+    left:345px;
     -webkit-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
     transform: rotate(-10deg);
 }
 .photo-album .img8 {
     bottom: -20px;
-    left: 700px;
-    -webkit-transform: rotate(-8deg);
-    -moz-transform: rotate(-8deg);
-    transform: rotate(-8deg);
+    left: 770px;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    transform: rotate(-5deg);
 }
 .photo-album .img9 {
     bottom: 0;
@@ -176,7 +174,7 @@ a img {
     transform: rotate(-8deg);
 }
 .photo-album .img12 {
-    top: 0;
+    top: -25px;
     left: 680px;
     -webkit-transform: rotate(18deg);
     -moz-transform: rotate(18deg);
@@ -184,21 +182,21 @@ a img {
 }
 .photo-album .img13 {
     bottom: -20px;
-    right: 630px;
+    right: 705px;
     -webkit-transform: rotate(4deg);
     -moz-transform: rotate(4deg);
     transform: rotate(4deg);
 }
 .photo-album .img14 {
     top: 90px;
-    left: 430px;
+    left: 360px;
     -webkit-transform: rotate(15deg);
     -moz-transform: rotate(15deg);
     transform: rotate(15deg);
 }
 .photo-album .img15 {
     left:170px;
-    top:20px;
+    top:-105px;
     -webkit-transform: rotate(-8deg);
     -moz-transform: rotate(-8deg);
     transform: rotate(-8deg);
