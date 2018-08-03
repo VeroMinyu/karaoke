@@ -36,16 +36,11 @@ import { PerformanceDetailComponent } from './performance-detail/performance-det
     FilterPipe,
     EntryFormComponent,
     LoadingComponent,
-<<<<<<< HEAD
-    TestVideoComponent,
-    NotfoundComponent,
-    FileSelectDirective
-=======
+    FileSelectDirective,
     RecordVideoComponent,
     NotfoundComponent,
     PerformancesComponent,
     PerformanceDetailComponent
->>>>>>> songs
   ],
   imports: [
     BrowserModule,
