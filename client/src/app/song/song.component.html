@@ -15,11 +15,13 @@
           </button>
         </div>
       </div>
-      <p class="karaoke active">&nbsp;{{line1}}&nbsp;</p>
-      <p class="karaoke">&nbsp;{{line2}}&nbsp;</p>
+      <div *ngIf="line1 || line2" class="lyrics">
+        <p class="karaoke active {{colorClass}}">&nbsp;{{line1}}&nbsp;</p>
+        <p class="karaoke">&nbsp;{{line2}}&nbsp;</p>
+      </div>
     </div>
     <div class="recommendation-wrap" [style.height.px]="height">
-      <div *ngFor="let r of recommendations">
+      <div class="recommendation" *ngFor="let r of recommendations">
         <div *ngIf="r._id" [routerLink]="['/karaoke', r._id]">
           <img src="{{r.video_img}}" alt="{{r.title}}">
           <h4>{{r.title}}</h4>
