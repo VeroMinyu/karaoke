@@ -1,17 +1,27 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from "@angular/core";
 import * as RecordRTC from "recordrtc";
+import { SessionService } from "../../services/session.service";
+import { PerformanceService } from "../../services/performances.service";
 
 @Component({
-  selector: "app-test-video",
-  templateUrl: "./test-video.component.html",
-  styleUrls: ["./test-video.component.css"]
+  selector: "app-record-video",
+  templateUrl: "./record-video.component.html",
+  styleUrls: ["./record-video.component.css"],
+  providers: [PerformanceService]
 })
-export class TestVideoComponent implements OnInit {
+export class RecordVideoComponent implements OnInit {
   @ViewChild("video") video: any;
   stream: any;
   recordRTC: any;
+  file: any;
 
-  constructor() {}
+  recording: boolean = false;
+  finishRecording: boolean = false;
+
+  @Input() songId: string;
+  @Output() onStartRecording = new EventEmitter<void>();
+
+  constructor(private sessionService: SessionService, private performanceService: PerformanceService) {}
 
   ngOnInit() { }
 
@@ -26,7 +36,7 @@ export class TestVideoComponent implements OnInit {
   startRecording() {
     let mediaConstraints = {
       audio: true,
-      video: { width: 1280, height: 720, minAspectRatio: 1.77 }
+      video: { width: 320, minAspectRatio: 1.77 }
     };
     navigator.mediaDevices
       .getUserMedia(mediaConstraints)
@@ -36,9 +46,12 @@ export class TestVideoComponent implements OnInit {
   errorCallback() {}
 
   successCallback(stream: MediaStream) {
+    this.onStartRecording.emit();
+    this.recording = true;
+
     var options = {
       mimeType: 'video/webm\;codecs=vp9'
-  };
+    };
     this.stream = stream;
     this.recordRTC = RecordRTC(stream, options);
     this.recordRTC.startRecording();
@@ -55,6 +68,9 @@ export class TestVideoComponent implements OnInit {
   }
 
   stopRecording() {
+    this.recording = false;
+    this.finishRecording = true;
+
     let recordRTC = this.recordRTC;
     recordRTC.stopRecording(this.processVideo.bind(this));
     let stream = this.stream;
@@ -63,15 +79,22 @@ export class TestVideoComponent implements OnInit {
   }
 
   processVideo(audioVideoWebMURL) {
-    let video: HTMLVideoElement = this.video.nativeElement;
-    let recordRTC = this.recordRTC;
-    video.src = audioVideoWebMURL;
+    this.video.nativeElement.src = audioVideoWebMURL;
     this.toggleControls();
-    var file = recordRTC.getBlob();
-    recordRTC.getDataURL(function(dataURL) { });
+    this.file = this.recordRTC.getBlob();
+
+    this.recordRTC.getDataURL(function(dataURL) { }.bind(this));
   }
 
   download() {
     this.recordRTC.save("karaoke.webm");
+  }
+
+  upload() {
+    this.performanceService
+      .addPerformance(this.sessionService.user._id, this.songId, this.file)
+      .subscribe(response => {
+        console.log(response);
+      });
   }
 }

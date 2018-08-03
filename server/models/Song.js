@@ -13,6 +13,7 @@ const songSchema = new Schema({
 },{
     usePushEach: true
 });
+songSchema.set("timestamps", true);
 
 const Song = mongoose.model('Song', songSchema)
 module.exports = Song;

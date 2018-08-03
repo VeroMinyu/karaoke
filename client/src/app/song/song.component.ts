@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SongsService } from '../../services/songs.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from "../../environments/environment";
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-song',
@@ -28,7 +27,9 @@ export class SongComponent implements OnInit {
   line2: string;
   lyrics: Array<any>;
 
-  constructor(private songsService: SongsService, private route: ActivatedRoute, private router: Router) { }
+  live: boolean = false;
+
+  constructor(private songsService: SongsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -56,7 +57,7 @@ export class SongComponent implements OnInit {
   ngAfterViewChecked() {
     if (this.videoplayer) {
       setTimeout(() => {
-        this.height = this.videoplayer.nativeElement.clientHeight;
+        this.height = this.videoplayer.nativeElement.clientHeight + 83;
       });
     }
   }
@@ -107,5 +108,14 @@ export class SongComponent implements OnInit {
         clearInterval(this.interval);
       }
     }, 1000);
+  }
+
+  startLive() {
+    this.live = true;
+  }
+
+  startRecording() {
+    this.videoplayer.nativeElement.play();
+    this.karaoke();
   }
 }
