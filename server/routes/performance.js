@@ -7,6 +7,8 @@ const uploadCloud = require('../config/cloudinaryPerformances');
 
 router.get('/', ensureLoggedIn(), (req, res, next) => {
   Performance.find().sort({ createdAt: -1 })
+    .populate("user")
+    .populate("song")
     .then(performances => res.status(200).json(performances))
     .catch(e => res.status(500).json({ message: e.message }));
 });
