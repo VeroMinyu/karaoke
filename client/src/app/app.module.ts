@@ -21,6 +21,7 @@ import { IsLoggedOutGuardService } from "../guards/isLoggedOut.guard";
 import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
 import { TestVideoComponent } from './test-video/test-video.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     EntryFormComponent,
     LoadingComponent,
     TestVideoComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const passport = require("passport");
+const uploadCloud = require('../config/cloundinary');
 
 const login = (req, user) => {
   return new Promise((resolve, reject) => {
@@ -16,7 +17,12 @@ const login = (req, user) => {
   });
 };
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", uploadCloud.single('file'), (req, res, next) => {
+  
+  if(req.file){
+    secureurl = req.file.secure_url;
+  }
+
   const { username, password } = req.body;
 
   if (!username || !password) {
@@ -32,7 +38,8 @@ router.post("/signup", (req, res, next) => {
 
       return new User({
         username,
-        password: hashPass
+        password: hashPass,
+        profilePic: secureurl
       }).save();
     })
     .then(savedUser => login(req, savedUser)) // Login the user using passport

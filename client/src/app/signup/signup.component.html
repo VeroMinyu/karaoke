@@ -11,8 +11,8 @@
       <input type="password" [(ngModel)]="password" name="password" />
     </div>
     <div>
-      <label>Profile picture ¡¡¡FALTA!!!</label>
-      <input type="file">
+      <label>Profile picture</label>
+      <input type="file" name="file" ng2FileSelect [uploader]="uploader">
     </div>
     <button (click)="signup(username, password);">Sign up</button>
   </form>

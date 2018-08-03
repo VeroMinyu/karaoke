@@ -76,7 +76,7 @@ a img {
     -webkit-box-shadow: 2px 2px 4px rgba(0,0, 0, 0.3);
     -moz-box-shadow: 2px 2px 4px rgba(0,0, 0, 0.3);
     box-shadow: 2px 2px 4px rgba(0,0, 0, 0.3);
-    border: 1px solid #6A6A6A;
+    border: 4px solid red;
 }
 .photo-album .medium {
     width: 200px;
@@ -139,7 +139,7 @@ a img {
     transform: rotate(6deg);
 }
 .photo-album .img7 {
-    bottom:-40px;
+    bottom:-50px;
     left:345px;
     -webkit-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
@@ -188,7 +188,7 @@ a img {
     transform: rotate(4deg);
 }
 .photo-album .img14 {
-    top: 90px;
+    top: 100px;
     left: 360px;
     -webkit-transform: rotate(15deg);
     -moz-transform: rotate(15deg);

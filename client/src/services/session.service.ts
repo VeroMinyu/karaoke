@@ -32,20 +32,6 @@ export class SessionService {
     );
   }
 
-  signup(username: string, password: string): Observable<object> {
-    return this.http.post(`${BASEURL}/api/auth/signup`, { username, password }, this.options).pipe(
-      map((res: Response) => {
-        let data = res.json();
-        this.user = data.user;
-        return this.user;
-      }),
-      catchError(e => {
-        of(this.errorHandler(e));
-        throw new Error(e.json().message);
-      })
-    );
-  }
-
   login(username: string, password: string): Observable<object> {
     return this.http.post(`${BASEURL}/api/auth/login`, { username, password }, this.options).pipe(
       map((res: Response) => {
