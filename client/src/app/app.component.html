@@ -8,6 +8,7 @@
       <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">Sign up</a></li>
       <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">Log in</a></li>
       <li *ngIf="sessionService.user"><a [routerLink]="['/karaoke']">Karaoke</a></li>
+      <li *ngIf="sessionService.user"><a [routerLink]="['/performances']">Performances</a></li>
       <li *ngIf="sessionService.user"><a href="#" (click)="logout();">Log out</a></li>
     </ul>
   </nav>

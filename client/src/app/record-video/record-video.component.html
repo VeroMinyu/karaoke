@@ -5,9 +5,9 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <button md-raised-button color="primary" (click)="startRecording()">Record </button>
-    <button md-raised-button color="primary" (click) ="stopRecording()">Stop</button>
-    <button md-raised-button color="primary" (click)="download()">Download</button>
-    <button md-raised-button color="primary" (click)="upload()">Upload</button>
+    <button *ngIf="!recording && !finishRecording" (click)="startRecording()">Record</button>
+    <button *ngIf="recording" (click) ="stopRecording()">Stop</button>
+    <button *ngIf="finishRecording" (click)="download()">Download</button>
+    <button *ngIf="finishRecording" (click)="upload()">Upload</button>
   </div>
 </div>

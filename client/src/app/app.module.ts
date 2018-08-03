@@ -21,6 +21,8 @@ import { IsLoggedOutGuardService } from "../guards/isLoggedOut.guard";
 import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
 import { RecordVideoComponent } from './record-video/record-video.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { PerformancesComponent } from './performances/performances.component';
+import { PerformanceDetailComponent } from './performance-detail/performance-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
     EntryFormComponent,
     LoadingComponent,
     RecordVideoComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    PerformancesComponent,
+    PerformanceDetailComponent
   ],
   imports: [
     BrowserModule,

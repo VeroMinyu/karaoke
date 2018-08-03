@@ -7,6 +7,8 @@ import { SongComponent } from "./song/song.component";
 import { EntryFormComponent } from "./entry-form/entry-form.component";
 import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
 import { NotfoundComponent } from "./notfound/notfound.component";
+import { PerformancesComponent } from "./performances/performances.component";
+import { PerformanceDetailComponent } from "./performance-detail/performance-detail.component";
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -15,6 +17,8 @@ export const routes: Routes = [
   { path: "karaoke", component: SongsListComponent, canActivate: [ IsLoggedInGuardService ] },
   { path: "karaoke/form/:artist/:id/:title", component: EntryFormComponent, canActivate: [ IsLoggedInGuardService ] },
   { path: "karaoke/:id", component: SongComponent, canActivate: [ IsLoggedInGuardService ] },
+  { path: "performances", component: PerformancesComponent },
+  { path: "performances/:id", component: PerformanceDetailComponent },
   { path: "error", component: NotfoundComponent},
   { path: "**", redirectTo: "/error"}
 ];

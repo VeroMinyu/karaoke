@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from "@angular/core";
 import * as RecordRTC from "recordrtc";
-import { FileUploader } from 'ng2-file-upload';
 import { SessionService } from "../../services/session.service";
 import { PerformanceService } from "../../services/performances.service";
 
@@ -15,6 +14,9 @@ export class RecordVideoComponent implements OnInit {
   stream: any;
   recordRTC: any;
   file: any;
+
+  recording: boolean = false;
+  finishRecording: boolean = false;
 
   @Input() songId: string;
   @Output() onStartRecording = new EventEmitter<void>();
@@ -45,6 +47,7 @@ export class RecordVideoComponent implements OnInit {
 
   successCallback(stream: MediaStream) {
     this.onStartRecording.emit();
+    this.recording = true;
 
     var options = {
       mimeType: 'video/webm\;codecs=vp9'
@@ -65,6 +68,9 @@ export class RecordVideoComponent implements OnInit {
   }
 
   stopRecording() {
+    this.recording = false;
+    this.finishRecording = true;
+
     let recordRTC = this.recordRTC;
     recordRTC.stopRecording(this.processVideo.bind(this));
     let stream = this.stream;

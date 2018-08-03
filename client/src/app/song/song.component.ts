@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SongsService } from '../../services/songs.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from "../../environments/environment";
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-song',
@@ -30,7 +29,7 @@ export class SongComponent implements OnInit {
 
   live: boolean = false;
 
-  constructor(private songsService: SongsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private songsService: SongsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
