@@ -28,6 +28,8 @@ export class SongComponent implements OnInit {
   line2: string;
   lyrics: Array<any>;
 
+  live: boolean = false;
+
   constructor(private songsService: SongsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -107,5 +109,14 @@ export class SongComponent implements OnInit {
         clearInterval(this.interval);
       }
     }, 1000);
+  }
+
+  startLive() {
+    this.live = true;
+  }
+
+  startRecording() {
+    this.videoplayer.nativeElement.play();
+    this.karaoke();
   }
 }

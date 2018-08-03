@@ -19,7 +19,7 @@ import { EntryFormComponent } from './entry-form/entry-form.component';
 import { LoadingComponent } from './loading/loading.component';
 import { IsLoggedOutGuardService } from "../guards/isLoggedOut.guard";
 import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
-import { TestVideoComponent } from './test-video/test-video.component';
+import { RecordVideoComponent } from './record-video/record-video.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
@@ -33,7 +33,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     FilterPipe,
     EntryFormComponent,
     LoadingComponent,
-    TestVideoComponent,
+    RecordVideoComponent,
     NotfoundComponent
   ],
   imports: [

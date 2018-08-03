@@ -10,7 +10,9 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  opacity: 0;
+  transition: opacity 800ms;
 }
 
 #video-controls button {
@@ -21,6 +23,10 @@
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   outline: none;
   text-align: left;
+}
+
+.video-wrap:hover #video-controls {
+  opacity: 1;
 }
 
 #myVideo {
