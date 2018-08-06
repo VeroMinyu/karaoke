@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from "@angular/core";
+import { Component, OnInit, ViewChild, Output, EventEmitter, Input, SimpleChange } from "@angular/core";
 import * as RecordRTC from "recordrtc";
 import { SessionService } from "../../services/session.service";
 import { PerformanceService } from "../../services/performances.service";
+import { Router } from "../../../node_modules/@angular/router";
 
 @Component({
   selector: "app-record-video",
@@ -19,11 +20,25 @@ export class RecordVideoComponent implements OnInit {
   finishRecording: boolean = false;
 
   @Input() songId: string;
+  @Input() reset: boolean;
   @Output() onStartRecording = new EventEmitter<void>();
+  @Output() onStopRecording = new EventEmitter<void>();
 
-  constructor(private sessionService: SessionService, private performanceService: PerformanceService) {}
+  constructor(private sessionService: SessionService, private performanceService: PerformanceService, private router: Router) {}
 
   ngOnInit() { }
+
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    for (let propName in changes) {
+      let changedProp = changes[propName];
+
+      if (propName == "reset" && !changedProp.isFirstChange() && changedProp.currentValue) {
+        this.recording = false;
+        this.finishRecording = false;
+        this.video.nativeElement.src = null;
+      }
+    }
+  }
 
   ngAfterViewInit() {
     // set the initial state of the video
@@ -36,7 +51,7 @@ export class RecordVideoComponent implements OnInit {
   startRecording() {
     let mediaConstraints = {
       audio: true,
-      video: { width: 320, minAspectRatio: 1.77 }
+      video: { width: 640 }
     };
     navigator.mediaDevices
       .getUserMedia(mediaConstraints)
@@ -68,6 +83,8 @@ export class RecordVideoComponent implements OnInit {
   }
 
   stopRecording() {
+    this.onStopRecording.emit();
+    
     this.recording = false;
     this.finishRecording = true;
 
@@ -82,8 +99,6 @@ export class RecordVideoComponent implements OnInit {
     this.video.nativeElement.src = audioVideoWebMURL;
     this.toggleControls();
     this.file = this.recordRTC.getBlob();
-
-    this.recordRTC.getDataURL(function(dataURL) { }.bind(this));
   }
 
   download() {
@@ -94,7 +109,7 @@ export class RecordVideoComponent implements OnInit {
     this.performanceService
       .addPerformance(this.sessionService.user._id, this.songId, this.file)
       .subscribe(response => {
-        console.log(response);
+        this.router.navigate(['/performances']);
       });
   }
 }

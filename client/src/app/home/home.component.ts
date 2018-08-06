@@ -7,7 +7,7 @@ import { SessionService } from '../../services/session.service';
   templateUrl: './home.component.html',
   styleUrls: [
     './home.component.css',
-    '../../../node_modules/font-awesome/css/font-awesome.min.css'
+    '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
   ]
 })
 export class HomeComponent implements OnInit {

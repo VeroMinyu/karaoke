@@ -12,11 +12,11 @@
       </div>
       <div class="button-wrap">
         <div id="video-controls">
-          <button (click)="toggle()">
-            <i class="fa {{pauseClass}}"></i> Sing
+          <button *ngIf="showSingBtn" (click)="toggle()">
+            <i class="fa {{pauseClass}}"></i> {{pauseText}}
           </button>
-          <button (click)="startLive()">
-            <i class="fa fa-microphone"></i> Sing & Record
+          <button *ngIf="showLiveBtn" (click)="startLive()">
+            <i class="fa {{liveClass}}"></i> Sing & Record
           </button>
         </div>
       </div>
@@ -25,7 +25,14 @@
         <p class="karaoke">&nbsp;{{line2}}&nbsp;</p>
       </div>
     </div>
-    <div *ngIf="!live" class="recommendation-wrap" [style.height.px]="height">
+    <div class="recommendation-wrap" [style.height.px]="height">
+      <div *ngIf="live">
+        <app-record-video 
+          [songId]="song._id" 
+          [reset]="resetLive"
+          (onStartRecording)="startRecording();"
+          (onStopRecording)="stopRecording();"></app-record-video>
+      </div>
       <div class="recommendation" *ngFor="let r of recommendations">
         <div *ngIf="r._id" [routerLink]="['/karaoke', r._id]">
           <img src="{{r.video_img}}" alt="{{r.title}}">
@@ -36,9 +43,6 @@
           <h4>{{r.title}}</h4>
         </div>
       </div>
-    </div>
-    <div *ngIf="live">
-      <app-record-video [songId]="song._id" (onStartRecording)="startRecording();"></app-record-video>
     </div>
   </div>
 </section>

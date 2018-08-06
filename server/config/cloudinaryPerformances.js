@@ -12,8 +12,12 @@ cloudinary.config({
 
 var storage = cloudinaryStorage({
   cloudinary: cloudinary,
-  folder: "performances",
   allowedFormats: ["webm"],
+  params: {
+    folder: "performances",
+    format: "webm",
+    resource_type: "video"
+  },
   filename: function(req, file, cb) {
     photo = new Date().getTime();
     cb(undefined, photo);

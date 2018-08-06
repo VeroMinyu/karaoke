@@ -1,10 +1,6 @@
-<div class="row">
-  <div class="col-xs-12">
-    <video #video class="video"></video>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
+<div class="record-wrp">
+  <video #video class="video"></video>
+  <div class="btn-wrp">
     <button *ngIf="!recording && !finishRecording" (click)="startRecording()">Record</button>
     <button *ngIf="recording" (click) ="stopRecording()">Stop</button>
     <button *ngIf="finishRecording" (click)="download()">Download</button>

@@ -1,4 +1,11 @@
 <section id="performances">
   <h1 class="clip-text clip-text--cover">Performances</h1>
-  
+  <div class="performances-wrp">
+    <div *ngFor="let p of performances">
+      <div>{{p.user.username}}</div>
+      <div>{{p.song.title}} - {{p.song.artist}}</div>
+      <p>{{p.createdAt | date:'dd/MM/yyyy'}}</p>
+      <hr>
+    </div>
+  </div>
 </section>
