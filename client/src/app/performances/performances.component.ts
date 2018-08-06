@@ -9,6 +9,7 @@ import { PerformanceService } from '../../services/performances.service';
 })
 export class PerformancesComponent implements OnInit {
   performances: Array<object>;
+  search: string;
 
   constructor(private performanceService: PerformanceService) { }
 

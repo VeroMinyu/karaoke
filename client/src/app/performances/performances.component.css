@@ -1,0 +1,50 @@
+#performances {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.search input {
+  width: 100%;
+  padding: 0 10px;
+  border: 1px solid #424242;
+  border-radius: 3px;
+  height: 40px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.performances-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  text-align: left;
+}
+
+.performances-wrap .item {
+  width: 25%;
+  padding: 10px;
+}
+
+.performances-wrap .item .user {
+  display: flex;
+  margin-top: 5px;
+}
+
+.profile-pic {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.performances-wrap .item h2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}

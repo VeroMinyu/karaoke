@@ -7,7 +7,7 @@
       <div *ngIf="s == -1">
         <app-entry-form (onChange)="updateList()"></app-entry-form>
       </div>
-      <div *ngIf="s != -1" class="song" [routerLink]="['/karaoke', s._id]" class="hvr-grow-shadow">
+      <div *ngIf="s != -1" [routerLink]="['/karaoke', s._id]" class="hvr-grow-shadow">
         <div class="hvr-overline-reveal"></div>
         <img src="{{s.video_img}}" alt="{{s.title}}">
         <h2>{{s.title}}</h2>

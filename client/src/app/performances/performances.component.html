@@ -1,12 +1,20 @@
-<section id="performances">
+<section id="performances" class="container">
   <h1 class="clip-text clip-text--cover">Performances</h1>
-  <div class="performances-wrp">
-    <div *ngFor="let p of performances" [routerLink]="['/performances', p._id]">
-      <img src="{{p.screenShot}}" alt="">
-      <div>{{p.user.username}}</div>
-      <div>{{p.song.title}} - {{p.song.artist}}</div>
-      <p>{{p.createdAt | date:'dd/MM/yyyy'}}</p>
-      <hr>
+  <div class="search">
+    <input placeholder="Search..." type="text" [(ngModel)]="search">
+  </div>
+  <div class="performances-wrap">
+    <div class="item" *ngFor="let p of performances | filterPerformances:'song,title-song,artist-user,username':search" [routerLink]="['/performances', p._id]">
+      <div class="hvr-grow-shadow">
+        <div class="hvr-overline-reveal"></div>
+        <img src="{{p.screenShot}}" alt="{{p.user.username}} - {{p.song.title}}">
+        <div class="user">
+          <img class="profile-pic" src="{{p.user.profilePic}}" alt="{{p.user.username}}">
+          <h2>{{p.user.username}}</h2>
+        </div>
+        <div>{{p.song.title}} - {{p.song.artist}}</div>
+        <small>{{p.createdAt | date:'dd/MM/yyyy'}}</small>
+      </div>
     </div>
   </div>
 </section>

@@ -175,3 +175,59 @@ form .error {
   background-size: cover;
   background-position: 50% 50%;
 }
+
+/* Hover grow */
+
+.hvr-grow-shadow {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.hvr-overline-reveal {
+  height: 10px;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.hvr-overline-reveal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #7fc400;
+  height: 6px;
+  -webkit-transform: translateY(-10px);
+  transform: translateY(-10px);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-grow-shadow:hover, 
+.hvr-grow-shadow:focus, 
+.hvr-grow-shadow:active {
+  outline: none;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.hvr-grow-shadow:hover .hvr-overline-reveal:before, 
+.hvr-grow-shadow:focus .hvr-overline-reveal:before, 
+.hvr-grow-shadow:active .hvr-overline-reveal:before {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
