@@ -6,11 +6,15 @@ import { FileUploader } from 'ng2-file-upload';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
   error: string;
-  constructor(private sessionService: SessionService, private router: Router) { }
+
+  url = '';
+
+  constructor(private sessionService: SessionService, private router: Router) { 
+  }
 
   uploader: FileUploader = new FileUploader({
     url: `http://localhost:3000/api/auth/signup`,
@@ -47,6 +51,16 @@ export class SignupComponent implements OnInit {
       this.uploader.onCompleteItem = () => {
         this.router.navigate(['/']);
       };
+    }
+  }
+
+  onSelectFile(event){
+    if(event.target.files && event.target.files[0]){
+      var reader: FileReader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = reader.result;
+      }
     }
   }
 }

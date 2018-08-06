@@ -10,6 +10,7 @@ import { Router, NavigationStart } from '../../node_modules/@angular/router';
 export class AppComponent {
 
   constructor(private sessionService: SessionService, private router: Router, private renderer: Renderer2) {
+
     this.router.events
       .subscribe((event) => {
         if (event instanceof NavigationStart) {

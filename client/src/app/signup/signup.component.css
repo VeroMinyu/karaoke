@@ -2,3 +2,10 @@ h2 {
   color: #fff;
   margin-bottom: 20px;
 }
+
+#preview{
+  width: 70px ; 
+  height: 70px ; 
+  border-radius: 100%;
+  object-fit: cover;
+}

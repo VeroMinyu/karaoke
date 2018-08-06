@@ -7,9 +7,10 @@
     <div class="main">
       <div class="video-wrap">
         <video id="myVideo" #videoPlayer>
-          <source src={{videoSource}} type="video/mp4">
-          Your browser does not support HTML5 video.
+          <source src={{videoSource}} type="video/mp4"> Your browser does not support HTML5 video.
         </video>
+      </div>
+      <div class="button-wrap">
         <div id="video-controls">
           <button (click)="toggle()">
             <i class="fa {{pauseClass}}"></i> Sing

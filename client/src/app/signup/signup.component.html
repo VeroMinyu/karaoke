@@ -1,7 +1,7 @@
 <section class="gradient-bg">
   <h2>Sign up</h2>
   <form>
-      <p class="error" *ngIf="error">{{error}}</p>
+    <p class="error" *ngIf="error">{{error}}</p>
     <div>
       <label>Username</label>
       <input type="text" [(ngModel)]="username" name="username" />
@@ -12,7 +12,8 @@
     </div>
     <div>
       <label>Profile picture</label>
-      <input type="file" name="file" ng2FileSelect [uploader]="uploader">
+      <img *ngIf="url" [src]="url" id="preview"><br>
+      <input type="file" accept="image/*" name="file" ng2FileSelect [uploader]="uploader" (change)="onSelectFile($event)">
     </div>
     <button (click)="signup(username, password);">Sign up</button>
   </form>

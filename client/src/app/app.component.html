@@ -10,6 +10,7 @@
       <li *ngIf="sessionService.user"><a [routerLink]="['/karaoke']">Karaoke</a></li>
       <li *ngIf="sessionService.user"><a [routerLink]="['/performances']">Performances</a></li>
       <li *ngIf="sessionService.user"><a href="#" (click)="logout();">Log out</a></li>
+      <li *ngIf="sessionService.user"><a [routerLink]="['/performances']" ><img src={{sessionService.user.profilePic}} alt="userProfilePic"></a></li>
     </ul>
   </nav>
 </header>

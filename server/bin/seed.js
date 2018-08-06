@@ -422,100 +422,92 @@ const songs = [
         video_id: "_kxz7WX4mLU",
         video_name: "Cali Y El Dandee - Por Fin Te Encontré ft. Juan Magan, Sebastian Yatra-_kxz7WX4mLU.mp4",
         video_img: "https://img.youtube.com/vi/_kxz7WX4mLU/0.jpg",
-        lyrics: transform(`[00:36.62]Ohoh hee ouoh
-[00:31.36]Cali Y El Dandee
+        lyrics: transform(`[00:28.00]Ohoh hee ouoh
+[00:31.00]Cali Y El Dandee
 [00:35.70]Juan Magan
-[00:37.50]Sebastian Yatra
-[00:39.46]Si tu supieras que por ti me muero
-[00:43.00]Que yo te quiero, te quiero, te quiero, te quiero
-[00:50.17]Si tu supieras lo que te he esperado
-[00:54.14]Que yo te amo, te amo, te amo, te amo
-[00:58.96]Y me dijeron que te vieron sola
-[01:02.94]¿Por qué estas sola?
-[01:04.60]Suelta el pasado y déjame ser
-[01:06.90]El que te enamora (el que te enamora)
-[01:09.60]Y me dijeron que te vieron sola
-[01:12.59]¿Por qué tan sola?
-[01:15.17]Si tu a mi lado vas a tener
-[01:18.50]Al que mas te adora     
-[01:20.89]Dime por qué tan sola, sola
-[01:24.75]A estas horas, horas
-[01:25.70]Solo quiero saber de ti
-[01:27.31]Baila conmigo ahora, ahora
-[01:29.23]Y olvida a los demás soy tuyo
-[01:31.81]Haz de mi lo que tu quieras
-[01:33.69]Tengo los sentimientos en regla
-[01:37.73]Y ha sido tan larga la espera
-[01:40.55]Que por fin esta soltera      
-[01:42.75]Le tiro una mirada y me da Game Over
-[01:45.81]Y así no puedo
-[01:48.23]Me entrego y le digo
-[01:51.50]You can be my lover
-[01:51.89]Le suelto el freno     
-[01:54.02]Le tiro una mirada y me da Game Over
-[01:56.49]Y así no puedo
-[01:58.72]Me entrego y le digo
-[01:59.91]You can be my lover
-[02:01.82]Le suelto el freno    
-[02:04.28]Cuando tu me miras, yo te miro y me muero
-[02:09.19]Nadie te quiere como yo te quiero
-[02:12.53]Nadie te ve como te puedo ver
-[02:15.27]Porque si me dejas
-[02:18.38]Yo te llevare al cielo
-[02:19.97]Te haré canciones con amor sincero
-[02:22.31]Seré tu sol en este amanecer    
-[02:25.80]Y por fin te encontré
-[02:26.85](Nou nou nou)
-[02:28.15]Yo por fin te encontré
-[02:29.60](Nou nou nou)
-[02:31.27]Yo por fin te encontré
-[02:32.56](Nou nou nou)
-[02:33.78]Yo por fin te encontré
-[02:34.98](Nou nou nou)    
-[02:38.08]Si tu supieras que por ti me muero
-[02:42.45]Que yo te quiero, te quiero, te quiero, te quiero
-[02:48.61]Si tu supieras lo que te he esperado
-[02:52.50]Que yo te amo, te amo, te amo, te amo
-[02:56.27]Y me dijeron que te vieron sola
-[03:00.86]¿Por qué estas sola?
-[03:03.13]Suelta el pasado y déjame ser
-[03:05.53]El que te enamora (el que te enamora)
-[03:08.31]Y me dijeron que te vieron sola
-[03:10.98]¿Por qué tan sola?
-[03:13.40]Si tu a mi lado vas a tener
-[03:15.71]Al que mas te adora      
-[03:22.62]Conmigo no estarás más sola, hoy llego la hora
-[03:25.82]Tengo la receta para que volemos juntos
-[03:27.97]En la Aurora Boreal
-[03:28.81]Este amor es inmortal
-[03:29.89]Yo te quiero desde siempre
-[03:31.60]Y voy contigo hasta el final
-[03:32.87]Dime que ese soy yo
-[03:33.97]El que ves a tu lado
-[03:35.49]Que cuando estoy cerca olvidas el pasado
-[03:37.95]Y yo lo puedo ver dime qué vas a hacer
-[03:40.44]Yo te quiero tener     
-[03:42.32]Le tiro una mirada y me da Game Over
-[03:43.97]Y así no puedo
-[03:46.42]Me entrego y le digo
-[03:49.93]You can be my lover
-[03:51.28]Le suelto el freno     
-[03:53.26]Cuando tu me miras, yo te miro y me muero
-[03:58.55]Nadie te quiere como yo te quiero
-[04:03.93]Nadie te ve como te puedo ver
-[04:14.18]Porque si me dejas
-[04:16.16]Yo te llevare al cielo
-[04:18.61]Te haré canciones con amor sincero
-[04:21.42]Seré tu sol en este amanecer    
-[04:25.50]Y por fin te encontré
-[04:26.36](Nou nou nou)
-[04:27.61]Yo por fin te encontré
-[04:28.60](Nou nou nou)
-[04:30.29]Yo por fin te encontré
-[04:32.18](Nou nou nou)
-[04:33.66]Yo por fin te encontré
-[04:34.70](Nou nou nou)`)
-    },{
+[00:37.00]Sebastian Yatra
+[00:39.75]Si tú supieras que por ti me muero
+[00:43.32]Que yo te quiero, te quiero
+[00:45.96]Te quiero, te quiero
+[00:50.43]Si tú supieras lo que te he esperado
+[00:54.04]Que yo te amo, te amo, te amo, te amo
+[00:59.18]Y me dijeron que te vieron sola
+[01:02.01]Por qué estás sola
+[01:04.85]Suelta el pasado y déjame ser el que te enamora
+[01:09.90]Y me dijeron que te vieron sola
+[01:12.80]Por qué tan sola
+[01:15.59]Si tú a mi lado vas a tener al que más te adora
+[01:20.84]Dime por qué tan sola sola
+[01:22.63]A estas horas horas
+[01:24.03]Solo quiero saber de ti
+[01:26.16]Baila conmigo ahora hora
+[01:27.95]Y olvida a los demás
+[01:29.47]Soy tuyo
+[01:30.37]Haz de mí lo que tú quieras
+[01:33.82]Tengo los sentimientos en regla
+[01:36.54]Ha sido tan larga la espera
+[01:39.21]Que por fin estás soltera
+[01:41.48]Le tiro una mirada y me da game over
+[01:44.76]Y así no puedo
+[01:46.76]Me entrego y le digo you can be my lover
+[01:50.10]Le suelto el freno
+[01:52.16]Le tiro una mirada y me da game over
+[01:55.40]Y así no puedo
+[01:57.48]Me entrego y le digo you can be my lover
+[02:00.78]Le suelto el freno
+[02:02.90]Cuando tú me miras yo te miro y me muero
+[02:07.86]Nadie te quiere como yo te quiero
+[02:10.43]Nadie te ve como te puedo ver
+[02:13.58]Porque si me dejas yo te llevaré al cielo
+[02:18.40]Te haré canciones con amor sincero
+[02:21.06]Seré tu sol este amanecer
+[02:24.53]Y por fin te encontré (nou nou nou)
+[02:27.18]Yo por fin te encontré (nou nou nou)
+[02:29.70]Yo por fin te encontré (nou nou nou)
+[02:32.55]Yo por fin te encontré (nou nou nou)
+[02:37.08]Si tú supieras que por ti me muero
+[02:40.70]Que yo te quiero, te quiero
+[02:42.97]Te quiero, te quiero
+[02:47.85]Si tú supieras lo que te he esperado
+[02:51.46]Que yo te amo, te amo, te amo, te amo
+[02:56.54]Y me dijeron que te vieron sola
+[02:59.43]Por qué estás sola
+[03:02.15]Suelta el pasado y déjame ser el que te enamora
+[03:07.10]Y me dijeron que te vieron sola
+[03:10.10]Por qué tan sola
+[03:12.74]Si tú a mi lado vas a tener al que más te adora
+[03:18.22]Conmigo no estarás más sola
+[03:22.57]Hoy llego la hora
+[03:24.32]Tengo la receta para que volemos
+[03:25.99]Juntos en la aurora boreal
+[03:27.65]Este amor es inmortal
+[03:29.18]Yo te quiero desde siempre
+[03:30.45]Y voy contigo hasta el final
+[03:31.60]Dime que ese soy yo, el que ves a tu lado
+[03:34.43]Que cuando estoy cerca, olvidas el pasado
+[03:36.94]Y yo lo puedo ver, dime qué vas a hacer
+[03:39.43]Yo te quiero tener
+[03:41.94]Y le tiro una mirada y me da game over
+[03:44.65]Y así no puedo
+[03:47.14]Me entrego y le digo you can be my lover
+[03:50.55]Le suelto el freno
+[03:52.49]Le tiro una mirada y me da game over
+[03:55.76]Y así no puedo
+[03:57.81]Me entrego y le digo you can be my lover
+[04:00.98]Le suelto el freno
+[04:03.28]Cuando tú me miras yo te miro
+[04:06.52]Y me muero
+[04:08.23]Nadie te quiere como yo te quiero
+[04:10.89]Nadie te ve como te puedo ver
+[04:13.88]Porque si me dejas yo te llevaré al cielo
+[04:18.78]Te haré canciones con amor sincero
+[04:21.45]Seré tu sol este amanecer
+[04:24.81]Y por fin te encontré (nou nou nou) (yeah)
+[04:27.56]Yo por fin te encontré (nou nou nou)
+[04:30.22]Yo por fin te encontré (nou nou nou)
+[04:32.79]Yo por fin te encontré (nou nou nou)
+[04:35.73]Que por fin te encontré`)
+    }, {
         title: "Despacito ft. Daddy Yankee",
         artist: "Luis Fonsi",
         popularity: 11,
@@ -603,10 +595,57 @@ const songs = [
 [04:01.86]Hasta provocar tus gritos
 [04:03.38]Y que olvides tu apellido (DY)
 [04:06.59]Despacito`)
+    }, {
+        title: "Mi Gran Noche",
+        artist: "Raphael",
+        popularity: 10,
+        video_id: "uKfhlqBOPIs",
+        video_name: "Raphael canta 'Mi gran noche' _ Gala 25 años de Antena 3-uKfhlqBOPIs.mp4",
+        video_img: "https://img.youtube.com/vi/uKfhlqBOPIs/0.jpg",
+        lyrics: transform(`[00:10.20]Hoy para mi es un dia especial
+[00:14.76]pues saldre por la noche
+[00:18.46]podre vivir lo que el mundo no esta
+[00:21.39]cuando el sol ya se esconde
+[00:25.27]Podre cantar una dulce cancion
+[00:29.01]a la luz de la luna
+[00:32.44]y acariciar y besar a mi amor
+[00:35.67]como no lo hice nunca
+[00:39.08]Que pasara, que misterio habra
+[00:42.08]puede ser mi gran noche
+[00:45.87]y al despertar ya mi vida sabra
+[00:49.34]algo que no conoce
+[00:53.17]Caminare abrazando a mi amor
+[01:10.10]por las calles sin rumbo
+[01:14.10]descubrire que el amor es mejor
+[01:17.10]cuando todo esta obscuro
+[01:21.47]y sin hablar nuestros pasos iran
+[01:23.65]a buscar otra puerta
+[01:27.40]que se abrira como mi corazon
+[01:30.86]cuando ella se acerca
+[01:34.23]Que pasara, que misterio habra
+[01:37.50]puede ser mi gran noche
+[01:40.84]y al despertar ya mi vida sabra
+[01:44.38]algo que no conoce
+[02:01.85]Sera, sera esta noche ideal
+[02:05.27]que ya nunca se olvida
+[02:09.50]podre reir, y cantar y bailar
+[02:12.42]disfrutando la vida
+[02:16.66]Olvidare la tristeza y el mal
+[02:19.73]y las penas del mundo
+[02:22.94]y escuchare los violines cantar
+[02:25.77]en la noche sin rumbo
+[02:29.47]Que pasara, que misterio habra
+[02:33.00]puede ser mi gran noche
+[02:36.30]y al despertar ya mi vida sabra
+[02:39.43]algo que no conoce
+[02:43.19]Que pasara, que misterio habra
+[02:46.51]puede ser mi gran noche
+[02:50.18]Que pasara, que misterio habra
+[02:53.32]puede ser mi gran noche`)
     }
 ]
 
 Song.create(songs, (err) => {
     if (err) { throw (err) }
-    console.log(`Created ${songs.length} songs`)
+    console.log(`Created ${ songs.length } songs`)
 });

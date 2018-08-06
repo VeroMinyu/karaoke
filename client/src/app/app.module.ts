@@ -40,7 +40,7 @@ import { PerformanceDetailComponent } from './performance-detail/performance-det
     RecordVideoComponent,
     NotfoundComponent,
     PerformancesComponent,
-    PerformanceDetailComponent
+    PerformanceDetailComponent,
   ],
   imports: [
     BrowserModule,

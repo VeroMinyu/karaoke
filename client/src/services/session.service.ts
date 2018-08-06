@@ -11,6 +11,7 @@ const { BASEURL } = environment;
 interface User {
   _id?: string;
   username: string;
+  profilePic: string;
 }
 
 @Injectable()

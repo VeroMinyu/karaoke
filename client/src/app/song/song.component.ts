@@ -57,7 +57,7 @@ export class SongComponent implements OnInit {
   ngAfterViewChecked() {
     if (this.videoplayer) {
       setTimeout(() => {
-        this.height = this.videoplayer.nativeElement.clientHeight + 83;
+        this.height = this.videoplayer.nativeElement.clientHeight + 45;
       });
     }
   }
