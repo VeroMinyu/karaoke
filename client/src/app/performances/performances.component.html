@@ -1,7 +1,7 @@
 <section id="performances">
   <h1 class="clip-text clip-text--cover">Performances</h1>
   <div class="performances-wrp">
-    <div *ngFor="let p of performances">
+    <div *ngFor="let p of performances" [routerLink]="['/performances', p._id]">
       <img src="{{p.screenShot}}" alt="">
       <div>{{p.user.username}}</div>
       <div>{{p.song.title}} - {{p.song.artist}}</div>

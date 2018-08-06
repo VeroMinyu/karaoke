@@ -29,7 +29,7 @@ router.get('/:id', ensureLoggedIn(), (req, res, next) => {
 router.post('/', ensureLoggedIn(), uploadCloud.single('video'), (req, res, next) => {
   const { user, song, screenShot } = req.body;
   const base64Promise = new Promise((resolve, reject) => {
-    base64Img.img(screenShot, "../videos/screenshots", new Date().getTime(), (err, filepath) => {
+    base64Img.img(screenShot, "videos/screenshots", new Date().getTime(), (err, filepath) => {
       if (err) {
         reject(new Error(err.message));
       } else {
