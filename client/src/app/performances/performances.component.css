@@ -4,36 +4,8 @@
   text-align: center;
 }
 
-.search input {
-  width: 100%;
-  padding: 0 10px;
-  border: 1px solid #424242;
-  border-radius: 3px;
-  height: 40px;
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
 h1 {
   text-align: center;
-}
-
-.performances-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -10px;
-  margin-right: -10px;
-  text-align: left;
-}
-
-.performances-wrap .item {
-  width: 25%;
-  padding: 10px;
-}
-
-.performances-wrap .item .user {
-  display: flex;
-  margin-top: 5px;
 }
 
 .profile-pic {
@@ -41,27 +13,4 @@ h1 {
   height: 25px;
   border-radius: 50%;
   margin-right: 10px;
-}
-
-.performances-wrap .item h2 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.performances-wrap .img-wrap {
-  position: relative;
-}
-
-.performances-wrap .img-wrap .likes {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding: 15px;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-.performances-wrap .img-wrap .likes i {
-  margin-right: 5px;
 }

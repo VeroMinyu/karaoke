@@ -1,21 +1,22 @@
-<section id="performances" class="container">
-  <h1 class="clip-text clip-text--cover">Performances</h1>
+<section id="profile" class="container">
+  <h1 *ngIf="sessionService.user" class="clip-text clip-text--cover">{{sessionService.user.username}}</h1>
   <div class="search">
     <input placeholder="Search..." type="text" [(ngModel)]="search">
   </div>
   <div class="performances-wrap">
-    <div class="item" *ngFor="let p of performances | filterPerformances:'song,title-song,artist-user,username':search" [routerLink]="['/performances', p._id]">
+    <div class="item" *ngFor="let p of performances | filterPerformances:'song,title-song,artist':search" [routerLink]="['/performances', p._id]">
       <div class="hvr-grow-shadow">
+        <div class="remove">
+          <button (click)="removePerformance($event, p._id);">
+            <i class="far fa-trash-alt"></i>Remove
+          </button>
+        </div>
         <div class="hvr-overline-reveal"></div>
         <div class="img-wrap">
           <img src="{{p.screenShot}}" alt="{{p.user.username}} - {{p.song.title}}">
           <div class="likes">
             <i class="fas fa-heart"></i>{{p.likes.length}}
           </div>
-        </div>
-        <div class="user">
-          <img class="profile-pic" src="{{p.user.profilePic}}" alt="{{p.user.username}}">
-          <h2>{{p.user.username}}</h2>
         </div>
         <div>{{p.song.title}} - {{p.song.artist}}</div>
         <small>{{p.createdAt | date:'dd/MM/yyyy'}}</small>

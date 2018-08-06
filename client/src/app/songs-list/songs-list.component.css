@@ -3,16 +3,6 @@
   padding-bottom: 30px;
 }
 
-.search input {
-  width: 100%;
-  padding: 0 10px;
-  border: 1px solid #424242;
-  border-radius: 3px;
-  height: 40px;
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
 .songs-wrap {
   display: flex;
   flex-wrap: wrap;

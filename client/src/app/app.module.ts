@@ -25,6 +25,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { PerformancesComponent } from './performances/performances.component';
 import { PerformanceDetailComponent } from './performance-detail/performance-detail.component';
 import { FilterPerformancesPipe } from './pipes/filter-performances.pipe';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FilterPerformancesPipe } from './pipes/filter-performances.pipe';
     PerformancesComponent,
     PerformanceDetailComponent,
     FilterPerformancesPipe,
+    ProfileComponent,
   ],
   imports: [
     FileUploadModule,
