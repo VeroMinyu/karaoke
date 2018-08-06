@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-signup',
@@ -10,14 +11,17 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class SignupComponent implements OnInit {
   error: string;
+  username: string;
+  password: string;
+  file: string;
 
   url = '';
 
-  constructor(private sessionService: SessionService, private router: Router) { 
+  constructor(public sessionService: SessionService, public router: Router) { 
   }
 
   uploader: FileUploader = new FileUploader({
-    url: `http://localhost:3000/api/auth/signup`,
+    url: `${environment.BASEURL}/api/auth/signup`,
     method: 'POST'
   });
 

@@ -21,7 +21,7 @@ import { IsLoggedOutGuardService } from "../guards/isLoggedOut.guard";
 import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
 import { RecordVideoComponent } from './record-video/record-video.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 import { PerformancesComponent } from './performances/performances.component';
 import { PerformanceDetailComponent } from './performance-detail/performance-detail.component';
 
@@ -36,13 +36,13 @@ import { PerformanceDetailComponent } from './performance-detail/performance-det
     FilterPipe,
     EntryFormComponent,
     LoadingComponent,
-    FileSelectDirective,
     RecordVideoComponent,
     NotfoundComponent,
     PerformancesComponent,
     PerformanceDetailComponent,
   ],
   imports: [
+    FileUploadModule,
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,

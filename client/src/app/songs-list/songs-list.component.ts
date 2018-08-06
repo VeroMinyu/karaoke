@@ -9,6 +9,7 @@ import { SongsService } from '../../services/songs.service';
 })
 export class SongsListComponent implements OnInit {
   songs: Array<object>;
+  search: string;
 
   constructor(private songsService: SongsService) { }
 

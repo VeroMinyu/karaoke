@@ -15,6 +15,7 @@ export class EntryFormComponent implements OnInit {
   title: string = "";
   artist: string = "";
   youtube_url: string = "";
+  lyrics: string = "";
 
   redirect: boolean = false;
 

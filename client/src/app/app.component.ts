@@ -9,7 +9,7 @@ import { Router, NavigationStart } from '../../node_modules/@angular/router';
 })
 export class AppComponent {
 
-  constructor(private sessionService: SessionService, private router: Router, private renderer: Renderer2) {
+  constructor(public sessionService: SessionService, public router: Router, public renderer: Renderer2) {
 
     this.router.events
       .subscribe((event) => {
