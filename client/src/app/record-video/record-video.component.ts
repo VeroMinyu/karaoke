@@ -12,9 +12,12 @@ import { Router } from "../../../node_modules/@angular/router";
 })
 export class RecordVideoComponent implements OnInit {
   @ViewChild("video") video: any;
+  @ViewChild("canvas") canvas: any;
   stream: any;
   recordRTC: any;
   file: any;
+  loading: boolean = false;
+  screenShot: any;
 
   recording: boolean = false;
   finishRecording: boolean = false;
@@ -24,11 +27,11 @@ export class RecordVideoComponent implements OnInit {
   @Output() onStartRecording = new EventEmitter<void>();
   @Output() onStopRecording = new EventEmitter<void>();
 
-  constructor(private sessionService: SessionService, private performanceService: PerformanceService, private router: Router) {}
+  constructor(private sessionService: SessionService, private performanceService: PerformanceService, private router: Router) { }
 
   ngOnInit() { }
 
-  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     for (let propName in changes) {
       let changedProp = changes[propName];
 
@@ -56,9 +59,11 @@ export class RecordVideoComponent implements OnInit {
     navigator.mediaDevices
       .getUserMedia(mediaConstraints)
       .then(this.successCallback.bind(this), this.errorCallback.bind(this));
+
+    setTimeout(function () { this.capture() }.bind(this), 2000)
   }
 
-  errorCallback() {}
+  errorCallback() { }
 
   successCallback(stream: MediaStream) {
     this.onStartRecording.emit();
@@ -84,7 +89,7 @@ export class RecordVideoComponent implements OnInit {
 
   stopRecording() {
     this.onStopRecording.emit();
-    
+
     this.recording = false;
     this.finishRecording = true;
 
@@ -106,10 +111,17 @@ export class RecordVideoComponent implements OnInit {
   }
 
   upload() {
+    this.loading = true;
     this.performanceService
-      .addPerformance(this.sessionService.user._id, this.songId, this.file)
+      .addPerformance(this.sessionService.user._id, this.songId, this.file, this.screenShot)
       .subscribe(response => {
+        this.loading = false;
         this.router.navigate(['/performances']);
       });
+  }
+
+  capture() {
+    var context = this.canvas.nativeElement.getContext("2d").drawImage(this.video.nativeElement, 0, 0, 277.59, 208.19);
+    this.screenShot=this.canvas.nativeElement.toDataURL("image/jpeg")
   }
 }
