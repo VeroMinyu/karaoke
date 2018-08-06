@@ -48,3 +48,20 @@ h1 {
   font-size: 1.1rem;
   font-weight: 700;
 }
+
+.performances-wrap .img-wrap {
+  position: relative;
+}
+
+.performances-wrap .img-wrap .likes {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.performances-wrap .img-wrap .likes i {
+  margin-right: 5px;
+}

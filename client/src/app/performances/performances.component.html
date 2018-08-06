@@ -7,7 +7,12 @@
     <div class="item" *ngFor="let p of performances | filterPerformances:'song,title-song,artist-user,username':search" [routerLink]="['/performances', p._id]">
       <div class="hvr-grow-shadow">
         <div class="hvr-overline-reveal"></div>
-        <img src="{{p.screenShot}}" alt="{{p.user.username}} - {{p.song.title}}">
+        <div class="img-wrap">
+          <img src="{{p.screenShot}}" alt="{{p.user.username}} - {{p.song.title}}">
+          <div class="likes">
+            <i class="fas fa-heart"></i>{{p.likes}}
+          </div>
+        </div>
         <div class="user">
           <img class="profile-pic" src="{{p.user.profilePic}}" alt="{{p.user.username}}">
           <h2>{{p.user.username}}</h2>
