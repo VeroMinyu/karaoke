@@ -1,0 +1,16 @@
+#performances {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.profile-pic {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}

@@ -1,0 +1,42 @@
+#profile {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.remove {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  text-align: center;
+  padding: 10px;
+}
+
+.remove button {
+  background: #000;
+  border: 2px solid #fff;
+  color: #fff;
+  height: 40px;
+  line-height: 30px;
+  outline: none;
+  font-size: 1rem;
+  padding: 0 20px;
+  border-radius: 40px;
+  transition: all 300ms;
+}
+
+.remove button i {
+  margin-right: 10px;
+}
+
+.remove button:hover {
+  background: #fff;
+  border-color: #000;
+  color: #000;
+}

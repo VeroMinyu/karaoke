@@ -9,16 +9,18 @@ import { IsLoggedInGuardService } from "../guards/isLoggedIn.guard";
 import { NotfoundComponent } from "./notfound/notfound.component";
 import { PerformancesComponent } from "./performances/performances.component";
 import { PerformanceDetailComponent } from "./performance-detail/performance-detail.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
-  { path: "karaoke", component: SongsListComponent, canActivate: [ IsLoggedInGuardService ] },
-  { path: "karaoke/form/:artist/:id/:title", component: EntryFormComponent, canActivate: [ IsLoggedInGuardService ] },
-  { path: "karaoke/:id", component: SongComponent, canActivate: [ IsLoggedInGuardService ] },
+  { path: "karaoke", component: SongsListComponent, canActivate: [IsLoggedInGuardService] },
+  { path: "karaoke/form/:artist/:id/:title", component: EntryFormComponent, canActivate: [IsLoggedInGuardService] },
+  { path: "karaoke/:id", component: SongComponent, canActivate: [IsLoggedInGuardService] },
   { path: "performances", component: PerformancesComponent },
   { path: "performances/:id", component: PerformanceDetailComponent },
-  { path: "error", component: NotfoundComponent},
-  { path: "**", redirectTo: "/error"}
+  { path: "profile", component: ProfileComponent },
+  { path: "error", component: NotfoundComponent },
+  { path: "**", redirectTo: "/error" }
 ];

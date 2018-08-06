@@ -5,6 +5,7 @@ import { environment } from "../environments/environment";
 import { map, catchError } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { of } from "rxjs";
+import { SessionService } from "./session.service";
 
 const { BASEURL } = environment;
 
@@ -12,7 +13,7 @@ const { BASEURL } = environment;
 export class PerformanceService {
   options: object = { withCredentials: true };
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private sessionService: SessionService) {}
 
   getPerformances(): Observable<Array<object>> {
     return this.http.get(`${BASEURL}/api/performance`, this.options).pipe(
@@ -25,6 +26,15 @@ export class PerformanceService {
 
   getPerformance(id): Observable<any> {
     return this.http.get(`${BASEURL}/api/performance/${id}`, this.options).pipe(
+      map((res: Response) => {
+        return res.json();
+      }),
+      catchError(e => of(this.errorHandler(e)))
+    );
+  }
+
+  getUserPerformances(id): Observable<Array<object>> {
+    return this.http.get(`${BASEURL}/api/performance/user/${id}`, this.options).pipe(
       map((res: Response) => {
         return res.json();
       }),
@@ -48,6 +58,15 @@ export class PerformanceService {
           throw new Error(e.json().message);
         })
       );
+  }
+
+  removePerformance(id: string): Observable<object> {
+    return this.http.delete(`${BASEURL}/api/performance/${id}`, this.options).pipe(
+      map((res: Response) => {
+        return res.json();
+      }),
+      catchError(e => of(this.errorHandler(e)))
+    );
   }
 
   errorHandler(e) {
