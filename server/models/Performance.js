@@ -6,17 +6,19 @@ const performanceSchema = new Schema({
   song: { type: Schema.Types.ObjectId, ref: "Song" },
   video_url: String,
   screenShot: String,
-  likes: { type: Number, default: 0 },
+  likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  views: { type: Number, default: 0 },
   comments: [
     {
       comment: String,
+      date: Date,
       user: { type: Schema.Types.ObjectId, ref: "User" }
     }
   ]
 },
-{
-  usePushEach: true
-});
+  {
+    usePushEach: true
+  });
 performanceSchema.set("timestamps", true);
 
 const Performance = mongoose.model("Performance", performanceSchema);

@@ -1,3 +1,27 @@
-<p>
-  performance-detail works!
-</p>
+<section id="song" class="container" *ngIf="myPerformance">
+  <div class="main">
+    <div class="video-wrap">
+      <video id="myVideo" #videoPlayer>
+        <source src={{videoSource}} type="video/webm"> Your browser does not support HTML5 video.
+      </video>
+      <div id="video-controls">
+        <button (click)="toggle()">
+          <i class="fa {{pauseClass}}"></i> {{pauseText}}
+        </button>
+      </div>
+      <div id="heart-wrap">
+        <input [(ngModel)]="checkboxFlag" id="toggle-heart" type="checkbox" (change)="changeLikes()" />
+        <label for="toggle-heart" aria-label="like">❤</label>
+      </div>
+    </div>
+    <div class="information">
+      <ul>
+        <li>Uploaded by:
+          <img src="{{myPerformance.user.profilePic}}" alt="profilepic"> {{myPerformance.user.username}}</li>
+        <li>Published on: {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</li>
+        <li>Views: {{myPerformance.views}}</li>
+        <li>Likes: {{myPerformance.likes.length}}</li>
+      </ul>
+    </div>
+  </div>
+</section>

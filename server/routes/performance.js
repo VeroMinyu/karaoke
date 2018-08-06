@@ -22,7 +22,13 @@ router.get('/', ensureLoggedIn(), (req, res, next) => {
 
 router.get('/:id', ensureLoggedIn(), (req, res, next) => {
   Performance.findById(req.params.id)
-    .then(perf => res.status(200).json(perf))
+    .then(perf => {
+      return Performance.findByIdAndUpdate(perf._id, { $inc: { views: 1 } }, { new: true })
+        .populate('user')
+        .populate('song')
+        .populate("likes")
+        .then(performance => res.status(200).json(performance))
+    })
     .catch(e => res.status(500).json({ message: e.message }));
 });
 
@@ -50,24 +56,24 @@ router.post('/', ensureLoggedIn(), uploadCloud.single('video'), (req, res, next)
     });
     return cloudinaryPromise;
   })
-  .then(response => {
-    if (req.file) {
-      const newPerformance = new Performance({
-        user,
-        song,
-        screenShot: response.secure_url,
-        video_url: req.file.secure_url
-      });
-    
-      return newPerformance.save();
-    } else {
-      throw new Error("Error saving video.");
-    }
-  })
-  .then(performance => {
-    res.status(200).json(performance);
-  })
-  .catch(e => res.status(500).json({ message: e.message }));
+    .then(response => {
+      if (req.file) {
+        const newPerformance = new Performance({
+          user,
+          song,
+          screenShot: response.secure_url,
+          video_url: req.file.secure_url
+        });
+
+        return newPerformance.save();
+      } else {
+        throw new Error("Error saving video.");
+      }
+    })
+    .then(performance => {
+      res.status(200).json(performance);
+    })
+    .catch(e => res.status(500).json({ message: e.message }));
 });
 
 module.exports = router;
