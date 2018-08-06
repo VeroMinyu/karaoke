@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
     };
   }
 
-  signup(username: string, password: string) {
+  signup(username: string, password: string, file: any) {
     this.error = "";
 
     if (!username || !password) {
@@ -42,6 +42,8 @@ export class SignupComponent implements OnInit {
       this.error = "Password should has at least 4 characters.";
     } else if (username.length < 4) {
       this.error = "Username should has at least 4 characters.";
+    } else if (!file) {
+      this.error = "Choose a profile image.";
     } else {
       this.uploader.onBuildItemForm = (item, form) => {
         form.append('username', username);
@@ -49,7 +51,7 @@ export class SignupComponent implements OnInit {
       };
       this.uploader.uploadAll();
       this.uploader.onCompleteItem = () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       };
     }
   }

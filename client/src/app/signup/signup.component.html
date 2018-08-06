@@ -13,8 +13,8 @@
     <div>
       <label>Profile picture</label>
       <img *ngIf="url" [src]="url" id="preview"><br>
-      <input type="file" accept="image/*" name="file" ng2FileSelect [uploader]="uploader" (change)="onSelectFile($event)">
+      <input type="file" [(ngModel)]="file" accept="image/*" name="file" ng2FileSelect [uploader]="uploader" (change)="onSelectFile($event)">
     </div>
-    <button (click)="signup(username, password);">Sign up</button>
+    <button (click)="signup(username, password, file);">Sign up</button>
   </form>
 </section>
