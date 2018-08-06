@@ -5,7 +5,7 @@ const performanceSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
   song: { type: Schema.Types.ObjectId, ref: "Song" },
   video_url: String,
-  caption_url: String,
+  screenShot: String,
   likes: { type: Number, default: 0 },
   comments: [
     {

@@ -7,6 +7,7 @@
     "dev": "DEBUG=server:* nodemon ./bin/www"
   },
   "dependencies": {
+    "base64-img": "^1.0.4",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "cloudinary": "^1.11.0",

@@ -25,3 +25,7 @@
   background: #7fc400;
   color: #fff;
 }
+
+#canvas{
+  display:none;
+}

@@ -32,11 +32,12 @@ export class PerformanceService {
     );
   }
 
-  addPerformance(user: string, song: string, video: any) {
+  addPerformance(user: string, song: string, video: any, screenShot: any) {
     const fd = new FormData();
     fd.append('user', user);
     fd.append('song', song);
     fd.append('video', video);
+    fd.append('screenShot', screenShot);
 
     return this.http.post(`${BASEURL}/api/performance`, fd, this.options).pipe(
         map((res: Response) => {
