@@ -115,7 +115,7 @@ export class SongComponent implements OnInit {
     this.interval = setInterval(() => {
       let changed = false;
 
-      if (!this.currentTime || this.lyrics[0].time <= this.currentTime) {
+      if (!this.currentTime || (this.lyrics[0].time + this.song.offset) <= this.currentTime) {
         changed = true;
       }
 
