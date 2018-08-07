@@ -44,10 +44,9 @@ export class PerformanceDetailComponent implements OnInit {
 
   ngAfterViewChecked() {
     if (this.videoplayer) {
-      let that = this;
-      this.videoplayer.nativeElement.addEventListener('ended', e => {
-        that.reset();
-      }, false);
+      this.videoplayer.nativeElement.onended = () => {
+        this.reset();
+      };
     }
   }
 
