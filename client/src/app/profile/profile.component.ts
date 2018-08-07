@@ -12,13 +12,16 @@ import { PerformanceService } from '../../services/performances.service';
 
 })
 export class ProfileComponent implements OnInit {
-  performances: Array<object>;
+  performances: Array<object> = [];
+  subscriptions: Array<object> = [];
   search: string;
 
   constructor(public sessionService: SessionService, private performanceService: PerformanceService) { }
 
   ngOnInit() {
     this.loadPerformances();
+
+    this.sessionService.getSubscriptions().subscribe(subscriptions => this.subscriptions = subscriptions);
   }
 
   removePerformance(e, id) {
@@ -31,7 +34,7 @@ export class ProfileComponent implements OnInit {
 
   loadPerformances() {
     this.sessionService.isLogged().subscribe(user => {
-      this.performanceService.getUserPerformances(user._id).subscribe(performances => this.performances = performances);
+      this.performanceService.getUserPerformances().subscribe(performances => this.performances = performances);
     });
   }
 

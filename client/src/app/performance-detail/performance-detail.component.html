@@ -15,20 +15,21 @@
       </div>
     </div>
     <div class="information">
-          <h1 class="clip-text clip-text--cover">{{myPerformance.song.title}}</h1>
-        <div>Uploaded by:&nbsp;
-          <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic">&nbsp;{{myPerformance.user.username}}</div>
-        <div>Published on: {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</div>
-        <div>Views: {{myPerformance.views}}</div>
-        <div>Likes❤️: {{myPerformance.likes.length}}</div>
-      <section>
+      <h1 class="clip-text clip-text--cover">{{myPerformance.song.title}}</h1>
+      <div>Uploaded by:&nbsp;
+        <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic">&nbsp;{{myPerformance.user.username}}
+      </div>
+      <div>Published on: {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</div>
+      <div>Views: {{myPerformance.views}}</div>
+      <div>Likes❤️: {{myPerformance.likes.length}}</div>
+      <section *ngIf="myPerformance.user._id !== sessionService.user._id" (click)="toggleSubscribe(myPerformance.user._id);">
         <div class="button">
-          <a href="" class="twitter-follow-button" data-show-count="false" data-size="large">{{myPerformance.user.username}}</a>
+          <div class="twitter-follow-button" data-show-count="false" data-size="large">{{myPerformance.user.username}}</div>
         </div>
         <div class="cover">
-          <div class="innie"></div>
+          <div [ngClass]="{'innie': true, 'unsubscribe': sessionService.user.following.includes(myPerformance.user._id)}"></div>
           <div class="spine"></div>
-          <div class="outie"></div>
+          <div [ngClass]="{'outie': true, 'unsubscribe': sessionService.user.following.includes(myPerformance.user._id)}" class="outie"></div>
         </div>
         <div class="shadow"></div>
       </section>

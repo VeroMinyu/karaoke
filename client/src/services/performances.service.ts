@@ -24,7 +24,7 @@ export class PerformanceService {
 
     this.socket.on('newPerformanceNotification', (data) => {
       this.sessionService.isLogged().subscribe(user => {
-        if (user) {
+        if (user && user.following.includes(data.user.id)) {
           this.notification = data;
           setTimeout(() => {
             this.notification = null;
@@ -52,8 +52,8 @@ export class PerformanceService {
     );
   }
 
-  getUserPerformances(id): Observable<Array<object>> {
-    return this.http.get(`${BASEURL}/api/performance/user/${id}`, this.options).pipe(
+  getUserPerformances(): Observable<Array<object>> {
+    return this.http.get(`${BASEURL}/api/performance/user`, this.options).pipe(
       map((res: Response) => {
         return res.json();
       }),

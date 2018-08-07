@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const { ensureLoggedIn } = require("connect-ensure-login");
 const User = require("../models/User");
 const passport = require("passport");
-const uploadCloud = require('../config/cloudinaryAuth');
+const uploadCloud = require("../config/cloudinaryAuth");
 
 const login = (req, user) => {
   return new Promise((resolve, reject) => {
@@ -17,9 +18,8 @@ const login = (req, user) => {
   });
 };
 
-router.post("/signup", uploadCloud.single('file'), (req, res, next) => {
-  
-  if(req.file){
+router.post("/signup", uploadCloud.single("file"), (req, res, next) => {
+  if (req.file) {
     secureurl = req.file.secure_url;
   }
 
@@ -62,6 +62,40 @@ router.get("/currentuser", (req, res, next) => {
   } else {
     next(new Error("Not logged in."));
   }
+});
+
+router.post("/subscribe", ensureLoggedIn(), (req, res, next) => {
+  const { userId } = req.body;
+  const isFollowing = req.user.following.some(function (user) {
+    return user.equals(userId);
+  });
+
+  if (isFollowing) {
+    User.findByIdAndUpdate(
+      req.user._id,
+      { $pull: { following: userId } },
+      { new: true }
+    )
+    .then(user => res.status(200).json(user))
+    .catch(e => res.status(500).json({ message: e.message }));
+  } else {
+    User.findByIdAndUpdate(
+      req.user._id,
+      { $push: { following: userId } },
+      { new: true }
+    )
+    .then(user => res.status(200).json(user))
+    .catch(e => res.status(500).json({ message: e.message }));
+  }
+});
+
+router.get("/subscriptions", ensureLoggedIn(), (req, res) => {
+  User.findById(req.user._id)
+    .populate("following", "username profilePic")
+    .then(user => {
+      res.status(200).json(user.following)
+    })
+    .catch(e => res.status(500).json({ message: e.message }));
 });
 
 router.get("/logout", (req, res) => {

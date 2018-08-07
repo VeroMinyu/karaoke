@@ -1,26 +1,41 @@
 <section id="profile" class="container">
   <h1 *ngIf="sessionService.user" class="clip-text clip-text--cover">{{sessionService.user.username}}</h1>
-  <div class="search">
-    <input placeholder="Search..." type="text" [(ngModel)]="search">
-  </div>
-  <div class="performances-wrap">
-    <div class="item" *ngFor="let p of performances | filterPerformances:'song,title-song,artist':search" [routerLink]="['/performances', p._id]">
-      <div class="hvr-grow-shadow">
-        <div class="remove">
-          <button (click)="removePerformance($event, p._id);">
-            <i class="far fa-trash-alt"></i>Remove
-          </button>
+  <div class="profile-data">
+    <div *ngIf="performances.length">
+      <h2>Performances</h2>
+      <div class="search">
+          <input placeholder="Search..." type="text" [(ngModel)]="search">
         </div>
-        <div class="hvr-overline-reveal"></div>
-        <div class="img-wrap">
-          <img src="{{p.screenShot}}" alt="{{p.user.username}} - {{p.song.title}}">
-          <div class="likes">
-            <i class="fas fa-heart"></i>{{p.likes.length}}
+        <div class="performances-wrap">
+          <div class="item" *ngFor="let p of performances | filterPerformances:'song,title-song,artist':search" [routerLink]="['/performances', p._id]">
+            <div class="hvr-grow-shadow">
+              <div class="remove">
+                <button (click)="removePerformance($event, p._id);">
+                  <i class="far fa-trash-alt"></i>Remove
+                </button>
+              </div>
+              <div class="hvr-overline-reveal"></div>
+              <div class="img-wrap">
+                <img src="{{p.screenShot}}" alt="{{p.user.username}} - {{p.song.title}}">
+                <div class="likes">
+                  <i class="fas fa-heart"></i>{{p.likes.length}}
+                </div>
+              </div>
+              <div>{{p.song.title}} - {{p.song.artist}}</div>
+              <small>{{p.createdAt | date:'dd/MM/yyyy'}}</small>
+            </div>
           </div>
         </div>
-        <div>{{p.song.title}} - {{p.song.artist}}</div>
-        <small>{{p.createdAt | date:'dd/MM/yyyy'}}</small>
+    </div>
+    <div *ngIf="subscriptions.length">
+      <h2>Subscriptions</h2>
+      <div class="subscriptions-wrap">
+        <div class="user" *ngFor="let s of subscriptions">
+          <img class="profile-pic" src="{{s.profilePic}}" alt="{{s.username}}">
+          <h4>{{s.username}}</h4>
+        </div>
       </div>
     </div>
   </div>
+  
 </section>
