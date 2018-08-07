@@ -9,8 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: [
     './performance-detail.component.css',
     '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-  ],
-  providers: [PerformanceService]
+  ]
 })
 
 export class PerformanceDetailComponent implements OnInit {

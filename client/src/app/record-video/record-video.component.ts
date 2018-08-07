@@ -7,8 +7,7 @@ import { Router } from "../../../node_modules/@angular/router";
 @Component({
   selector: "app-record-video",
   templateUrl: "./record-video.component.html",
-  styleUrls: ["./record-video.component.css"],
-  providers: [PerformanceService]
+  styleUrls: ["./record-video.component.css"]
 })
 export class RecordVideoComponent implements OnInit {
   @ViewChild("video") video: any;

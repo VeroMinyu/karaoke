@@ -1,6 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { Router, NavigationStart } from '../../node_modules/@angular/router';
+import { PerformanceService } from '../services/performances.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Router, NavigationStart } from '../../node_modules/@angular/router';
 })
 export class AppComponent {
 
-  constructor(public sessionService: SessionService, public router: Router, public renderer: Renderer2) {
+  constructor(public sessionService: SessionService, public performanceService: PerformanceService, public router: Router, public renderer: Renderer2) {
 
     this.router.events
       .subscribe((event) => {
