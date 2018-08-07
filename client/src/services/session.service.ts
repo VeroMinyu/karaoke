@@ -24,7 +24,7 @@ export class SessionService {
     this.isLogged().subscribe();
   }
 
-  isLogged() {
+  isLogged(): Observable<object> {
     return this.http.get(`${BASEURL}/api/auth/currentuser`, this.options).pipe(
       map((res: Response) => {
         this.user = res.json();
@@ -32,6 +32,10 @@ export class SessionService {
       }),
       catchError(e => of(null))
     );
+  }
+
+  isLoggedGuard() {
+    return this.http.get(`${BASEURL}/api/auth/currentuser`, this.options);
   }
 
   login(username: string, password: string): Observable<object> {
