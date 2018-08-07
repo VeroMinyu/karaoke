@@ -7,7 +7,9 @@ const performanceSchema = new Schema({
   video_url: String,
   screenShot: String,
   likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  views: { type: Number, default: 0 },
+  views: [{
+    createdAt: {type: Date, default: Date.now}
+  }],
   comments: [
     {
       comment: String,

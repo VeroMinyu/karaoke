@@ -16,15 +16,20 @@
     </div>
     <div class="information">
       <h1 class="clip-text clip-text--cover">{{myPerformance.song.title}}</h1>
-      <div>Uploaded by:&nbsp;
+      <div>Uploaded by :&nbsp;
         <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic">&nbsp;{{myPerformance.user.username}}
       </div>
-      <div>Published on: {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</div>
-      <div>Views: {{myPerformance.views}}</div>
-      <div>Likes❤️: {{myPerformance.likes.length}}</div>
+      <div>Published on : {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</div>
+      <div>Views : {{myPerformance.views.length}}</div>
+      <!-- <google-chart [data]="lineChartData"></google-chart> -->
+      <div>
+        <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true">
+        </canvas>
+      </div>
+      <div>Likes ❤️ : {{myPerformance.likes.length}}</div>
       <section *ngIf="myPerformance.user._id !== sessionService.user._id" (click)="toggleSubscribe(myPerformance.user._id);">
         <div class="button">
-          <div class="twitter-follow-button" data-show-count="false" data-size="large">{{myPerformance.user.username}}</div>
+          <div class="twitter-follow-button" data-show-count="false" data-size="large"><p id="specialFont">{{myPerformance.user.username}}</p></div>
         </div>
         <div class="cover">
           <div [ngClass]="{'innie': true, 'unsubscribe': sessionService.user.following.includes(myPerformance.user._id)}"></div>
@@ -38,7 +43,7 @@
   <div class="commentWrap">
     <div class="commentBox">
       <div class="authorThumbnail">
-        <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic">
+        <img class="profilepic" src="{{user.profilePic}}" alt="profilepic">
       </div>
       <div class="inputBox">
         <div class="inputEnter">
@@ -55,19 +60,19 @@
     </div>
     <div class="pastComments">
       <div *ngFor="let c of allComments" class="eachComment">
-          <div class="authorThumbnail">
-              <img class="profilepic" src="{{c.user.profilePic}}" alt="profilepic">
+        <div class="authorThumbnail">
+          <img class="profilepic" src="{{c.user.profilePic}}" alt="profilepic">
+        </div>
+        <div class="commentSection">
+          <div class="nameAndDate">
+            <p id="commentUserName">{{c.user.username}}</p>
+            <p id="on"> on </p>
+            <p id="commentDate">{{c.date | date:'yyyy-MM-dd HH:mm'}}</p>
           </div>
-          <div class="commentSection">
-            <div class="nameAndDate">
-              <p id="commentUserName">{{c.user.username}}</p>
-              <p id="on"> on </p>
-              <p id="commentDate">{{c.date | date:'yyyy-MM-dd HH:mm'}}</p>
-            </div>
-            <div class="content">
-              <p>{{c.comment}}</p>
-            </div>
+          <div class="content">
+            <p>{{c.comment}}</p>
           </div>
+        </div>
       </div>
     </div>
   </div>

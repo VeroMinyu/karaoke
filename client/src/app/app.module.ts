@@ -7,8 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { routes } from './routes'
 import { RouterModule } from '../../node_modules/@angular/router';
 
-import { FormsModule} from '@angular/forms';
-import { HttpModule} from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SessionService } from '../services/session.service';
@@ -27,6 +27,7 @@ import { PerformanceDetailComponent } from './performance-detail/performance-det
 import { FilterPerformancesPipe } from './pipes/filter-performances.pipe';
 import { ProfileComponent } from './profile/profile.component';
 import { PerformanceService } from '../services/performances.service';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PerformanceService } from '../services/performances.service';
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpModule
+    HttpModule,
+    ChartsModule
   ],
   providers: [
     SessionService,

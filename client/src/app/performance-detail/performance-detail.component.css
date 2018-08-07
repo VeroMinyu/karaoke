@@ -5,7 +5,6 @@
 
 .main {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 30px;
 }
 
@@ -55,6 +54,7 @@
 }
 
 .information{
+  padding-left:100px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -101,6 +101,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 10px;
+  font-weight: bold;
 }
 
 .green{
@@ -291,7 +292,7 @@ input[type=text]:focus {
 /* 3d subscribe */
 section, section div {
   /* See it in slo-mo, you can change this */
-  transition-duration: .6s;
+  transition-duration: .5s;
 }
 
 * { box-sizing: border-box; }
@@ -342,6 +343,7 @@ section {
   border-radius: .25rem;
 }
 .innie:after, .outie:after { content:"subscribe"; }
+.innie.unsubscribe:after, .outie.unsubscribe:after { content:"unsubscribe"; }
 
 .innie {
   background-color: #67E2FE;
@@ -391,3 +393,13 @@ section:hover .shadow {
   opacity: 1;
   transform: rotateX(45deg) scale(.95);
 }
+
+.twitter-follow-button{
+  text-align: center;
+}
+
+#specialFont{
+  font-size: 1.3em;
+}
+
+#specialFont:hover { cursor: pointer; }

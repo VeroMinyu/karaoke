@@ -31,7 +31,7 @@ router.get('/user', ensureLoggedIn(), (req, res, next) => {
 router.get('/:id', ensureLoggedIn(), (req, res, next) => {
   Performance.findById(req.params.id)
     .then(perf => {
-      return Performance.findByIdAndUpdate(perf._id, { $inc: { views: 1 } }, { new: true })
+      return Performance.findByIdAndUpdate(perf._id, { $push: { views: new Date } }, { new: true })
         .populate('user')
         .populate('song')
         .populate("likes")
