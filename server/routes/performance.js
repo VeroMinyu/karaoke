@@ -47,7 +47,7 @@ router.delete('/:id', ensureLoggedIn(), (req, res, next) => {
     .catch(e => res.status(500).json({ message: e.message }));
 });
 
-router.post('/', ensureLoggedIn(), uploadCloud.single('video'), (req, res, next) => {
+router.post("/", ensureLoggedIn(), uploadCloud.single("video"), (req, res, next) => {
   const { user, song, screenShot } = req.body;
   const base64Promise = new Promise((resolve, reject) => {
     base64Img.img(screenShot, "videos/screenshots", new Date().getTime(), (err, filepath) => {
@@ -59,18 +59,19 @@ router.post('/', ensureLoggedIn(), uploadCloud.single('video'), (req, res, next)
     });
   });
 
-  base64Promise.then(filepath => {
-    const cloudinaryPromise = new Promise((resolve, reject) => {
-      cloudinary.uploader.upload(filepath, result => {
-        if (result.hasOwnProperty('public_id')) {
-          resolve(result);
-        } else {
-          reject(new Error("Error uploading file."));
-        }
-      }, { width: 640, folder: "users" });
-    });
-    return cloudinaryPromise;
-  })
+  base64Promise
+    .then(filepath => {
+      const cloudinaryPromise = new Promise((resolve, reject) => {
+        cloudinary.uploader.upload(filepath, result => {
+          if (result.hasOwnProperty("public_id")) {
+            resolve(result);
+          } else {
+            reject(new Error("Error uploading file."));
+          }
+        }, { width: 640, folder: "users" });
+      });
+      return cloudinaryPromise;
+    })
     .then(response => {
       if (req.file) {
         const newPerformance = new Performance({

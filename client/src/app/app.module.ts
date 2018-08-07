@@ -26,6 +26,7 @@ import { PerformancesComponent } from './performances/performances.component';
 import { PerformanceDetailComponent } from './performance-detail/performance-detail.component';
 import { FilterPerformancesPipe } from './pipes/filter-performances.pipe';
 import { ProfileComponent } from './profile/profile.component';
+import { PerformanceService } from '../services/performances.service';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   providers: [
     SessionService,
+    PerformanceService,
     IsLoggedInGuardService,
     IsLoggedOutGuardService
   ],

@@ -7,8 +7,7 @@ import { PerformanceService } from '../../services/performances.service';
   styleUrls: [
     './performances.component.css',
     '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-  ],
-  providers: [PerformanceService]
+  ]
 })
 export class PerformancesComponent implements OnInit {
   performances: Array<object>;

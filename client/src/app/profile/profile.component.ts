@@ -8,8 +8,7 @@ import { PerformanceService } from '../../services/performances.service';
   styleUrls: [
     './profile.component.css',
     '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-  ],
-  providers: [PerformanceService]
+  ]
 
 })
 export class ProfileComponent implements OnInit {

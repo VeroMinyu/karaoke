@@ -15,4 +15,10 @@
   </nav>
 </header>
 
+<div [ngClass]="{'bottom-right': true, 'do-show': performanceService.notification}" *ngIf="performanceService.notification">
+  <div [routerLink]="['performances', performanceService.notification.video]">
+    New performance by <strong>{{performanceService.notification.user.username}}</strong>!
+  </div>
+</div>
+
 <router-outlet></router-outlet>

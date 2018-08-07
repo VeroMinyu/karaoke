@@ -10,8 +10,7 @@ import { SessionService } from '../../services/session.service';
   styleUrls: [
     './performance-detail.component.css',
     '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-  ],
-  providers: [PerformanceService, SessionService]
+  ]
 })
 
 export class PerformanceDetailComponent implements OnInit {
@@ -75,6 +74,6 @@ export class PerformanceDetailComponent implements OnInit {
     myArray.sort((a , b) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
-}
+  }
 
 }

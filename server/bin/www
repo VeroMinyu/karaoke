@@ -1,4 +1,6 @@
 const http = require('http');
+const socketIO = require('socket.io');
+let notificationServer = require('../config/notificationServer');
 
 let app = require('../app');
 
@@ -20,6 +22,8 @@ app.use((err, req, res, next) => {
 }); // Express middleware to handle errors
 
 let server = http.createServer(app);
+let io = socketIO(server);
+notificationServer(io);
 
 server.on('error', error => {
   if (error.syscall !== 'listen') { throw error }
