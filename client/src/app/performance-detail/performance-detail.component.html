@@ -1,4 +1,4 @@
-<section id="song" class="container" *ngIf="myPerformance">
+<div id="song" class="container" *ngIf="myPerformance">
   <div class="main">
     <div class="video-wrap">
       <video id="myVideo" #videoPlayer>
@@ -17,11 +17,46 @@
     <div class="information">
       <ul>
         <li>Uploaded by:
-          <img src="{{myPerformance.user.profilePic}}" alt="profilepic"> {{myPerformance.user.username}}</li>
+          <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic"> {{myPerformance.user.username}}</li>
         <li>Published on: {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</li>
         <li>Views: {{myPerformance.views}}</li>
         <li>Likes: {{myPerformance.likes.length}}</li>
       </ul>
+      <section>
+        <div class="button">
+          <a href="" class="twitter-follow-button" data-show-count="false" data-size="large">{{myPerformance.user.username}}</a>
+        </div>
+        <div class="cover">
+          <div class="innie"></div>
+          <div class="spine"></div>
+          <div class="outie"></div>
+        </div>
+        <div class="shadow"></div>
+      </section>
     </div>
   </div>
-</section>
+  <div class="commentWrap">
+    <div class="commentBox">
+      <div class="authorThumbnail">
+        <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic">
+      </div>
+      <div class="inputBox">
+        <div class="inputEnter">
+          <input class="input" type="text" placeholder="Add your comment..." [(ngModel)]="comment" name="comment">
+          <span class="underline"></span>
+        </div>
+        <div class="buttonsWrap">
+          <div class="floatRight">
+            <button class="btn">CANCEL</button>
+            <button class="btn green" (click)="post()">COMMENT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pastComments">
+      <div *ngFor="let c of allComments">
+        {{c.comment}} by {{c.user.username}} on {{c.date | date:'yyyy-MM-dd HH:mm'}}
+      </div>
+    </div>
+  </div>
+</div>

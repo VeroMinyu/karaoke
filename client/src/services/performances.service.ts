@@ -69,6 +69,15 @@ export class PerformanceService {
     );
   }
 
+  addComment(comment:string, performanceId:string, userId:string): Observable<object>{
+    return this.http.post(`${BASEURL}/api/comments`, {comment, performanceId, userId}, this.options).pipe(
+      map((res: Response) => {
+        return res.json();
+      }),
+      catchError(e => of(this.errorHandler(e)))
+    )
+  }
+
   errorHandler(e) {
     console.log("SessionServiceError");
     console.log(e.message);

@@ -2,12 +2,57 @@
     display: flex;
 }
 
-li img{
+.profilepic{
     width: 50px ; 
     height: 50px ; 
     border-radius: 100%;
     object-fit: cover;
 }
+
+.commentBox{
+  width: 640px;
+  display: flex;
+}
+
+.inputBox{
+  width: 100%;
+  margin-left:20px;
+}
+
+.floatRight{
+  float:right;
+  margin-top: 10px;
+}
+
+.btn {
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+
+.green{
+  border:1px solid #4CAF50;
+}
+
+/* input text style */
+input[type=text] {
+  height:17px;
+  border: 0;
+  width: calc(100% - 2px);
+  margin-left:1px;
+  box-shadow: -8px 10px 0px -7px #ebebeb, 8px 10px 0px -7px #ebebeb;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+input[type=text]:focus {
+  outline: none;
+  box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
+}
+
 
 /* heart */
 #heart-wrap{
@@ -54,7 +99,7 @@ li img{
     align-self: center;
     position: relative;
     color: #888;
-    font-size: 2.5em;
+    font-size: 1.5em;
     -webkit-filter: grayscale(1);
             filter: grayscale(1);
     -webkit-user-select: none;
@@ -145,4 +190,107 @@ li img{
       box-shadow: 0.32476rem -2.4375rem 0 0rem #ff8080, -0.32476rem -2.0625rem 0 0rem #ffed80, 2.1082rem -1.26585rem 0 0rem #ffed80, 1.41004rem -1.53985rem 0 0rem #a4ff80, 2.30412rem 0.85901rem 0 0rem #a4ff80, 2.08305rem 0.14233rem 0 0rem #80ffc8, 0.76499rem 2.33702rem 0 0rem #80ffc8, 1.18748rem 1.71734rem 0 0rem #80c8ff, -1.35019rem 2.0552rem 0 0rem #80c8ff, -0.60229rem 1.99916rem 0 0rem #a480ff, -2.44865rem 0.22578rem 0 0rem #a480ff, -1.93852rem 0.77557rem 0 0rem #ff80ed, -1.70323rem -1.77366rem 0 0rem #ff80ed, -1.81501rem -1.03204rem 0 0rem #ff8080;
     }
   }
+
+  /* 3d subscribe */
+  section, section div {
+    /* See it in slo-mo, you can change this */
+    transition-duration: .6s;
+  }
   
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: -webkit-radial-gradient(center top, circle farthest-corner, #FFFFFF 0%, #D8DFE9 100%);
+    background-image: radial-gradient(circle farthest-corner at center top, #FFFFFF 0%, #D8DFE9 100%);
+    overflow: hidden;
+  }
+  
+  section, .button { transition-timing-function: ease; }
+  
+  section {
+    display: inline-block;
+    position: relative;
+    padding: .375rem .375rem 0;
+    height: 2.5rem;
+    background: #A9ADB6;
+    border-radius: .25rem;
+    perspective: 300;
+    box-shadow: 0 -1px 2px #fff, inset 0 1px 2px rgba(0,0,0,.2), inset 0 .25rem 1rem rgba(0,0,0,.1);
+  }
+  
+  
+  .button { opacity: 0; }
+  
+  .cover {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    transform-origin: center bottom;
+    transform-style: preserve-3d;
+    font: 1.25em/2 "icon";
+    color: white;
+    text-align: center;
+    pointer-events: none;
+    z-index: 100;
+  }
+  
+  .innie, .outie, .spine, .shadow { position: absolute; width: 100%; }
+  
+  .innie, .outie {
+    height: 100%;
+    background-image: -webkit-linear-gradient(top, transparent 0%, rgba(0,0,0,.1) 100%);
+    border-radius: .25rem;
+  }
+  .innie:after, .outie:after { content:"t"; }
+  
+  .innie {
+    background-color: #67E2FE;
+    text-shadow: 0 -2px 4px rgba(0,0,0,.2);
+  }
+  
+  .spine {
+    top: .25rem;
+    background: #20C7F3;
+    height: .25rem;
+    transform: rotateX(90deg);
+    transform-origin: center top;
+  }
+  
+  .shadow {
+    top: 100%;
+    left: 0;
+    height: 3.5rem;
+    transform-origin: center top;
+    transform: rotateX(90deg);
+    opacity: 0;
+    z-index: 0;
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,.6) 0%, transparent 100%);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.6) 0%, transparent 100%);
+    border-radius: .4rem;
+  
+  }
+  
+  .outie {
+    background-color: #2EC8FA;
+    transform: translateZ(.25rem);
+    text-shadow: 0 2px 4px rgba(0,0,0,.2);
+  }
+  
+  section:hover { background: #EBEFF2; }
+  section:hover .button { opacity: 1; }
+  
+  section:hover .cover, section:hover .innie, section:hover .spine, section:hover .outie, section:hover .spine { transition-timing-function: cubic-bezier(.2,.7,.1,1.1); }
+  
+  section:hover .cover { transform: rotateX(-120deg);  }
+  
+  section:hover .innie { background-color: #3ADAFC; }
+  section:hover .spine { background-color: #52B1E0; }
+  section:hover .outie { background-color: #2174A0; color: rgba(255,255,255,0); }
+  
+  section:hover .shadow { 
+    opacity: 1;
+    transform: rotateX(45deg) scale(.95);
+  }

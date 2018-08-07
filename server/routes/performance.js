@@ -35,6 +35,7 @@ router.get('/:id', ensureLoggedIn(), (req, res, next) => {
         .populate('user')
         .populate('song')
         .populate("likes")
+        .populate('comments.user')
         .then(performance => res.status(200).json(performance))
     })
     .catch(e => res.status(500).json({ message: e.message }));
