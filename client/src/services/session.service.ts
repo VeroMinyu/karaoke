@@ -52,6 +52,17 @@ export class SessionService {
     );
   }
 
+  toggleSubscribe(userId) {
+    return this.http.post(`${BASEURL}/api/auth/subscribe`, { userId }, this.options).pipe(
+      map((res: Response) => {
+        let user = res.json();
+        this.user = user;
+        return this.user;
+      }),
+      catchError(e => of(this.errorHandler(e)))
+    );
+  }
+
   logout() {
     return this.http.get(`${BASEURL}/api/auth/logout`, this.options).pipe(
       map((res: Response) => {

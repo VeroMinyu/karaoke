@@ -25,7 +25,7 @@ export class PerformanceDetailComponent implements OnInit {
   pauseText: string = "Play";
   pauseClass: string = "fa-play-circle";
 
-  constructor(private performanceService: PerformanceService, private route: ActivatedRoute, private sessionService: SessionService) { }
+  constructor(private performanceService: PerformanceService, private route: ActivatedRoute, public sessionService: SessionService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -74,6 +74,10 @@ export class PerformanceDetailComponent implements OnInit {
     myArray.sort((a , b) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
+  }
+
+  toggleSubscribe(userId) {
+    this.sessionService.toggleSubscribe(userId).subscribe();
   }
 
 }
