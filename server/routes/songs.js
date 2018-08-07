@@ -21,7 +21,7 @@ router.get("/", ensureLoggedIn(), (req, res, next) => {
 router.get("/:id", ensureLoggedIn(), (req, res, next) => {
     Song.findById(req.params.id)
         .then(oneSong => {
-            return Song.findByIdAndUpdate(oneSong._id, { popularity: oneSong.popularity++ }, { new: true })
+            return Song.findByIdAndUpdate(oneSong._id, { $inc: { popularity: 1 } }, { new: true })
         })
         .then(song => res.status(200).json(song))
         .catch(e => res.status(500).json({ message: e.message }))

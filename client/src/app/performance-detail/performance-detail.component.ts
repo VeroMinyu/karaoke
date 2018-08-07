@@ -17,7 +17,7 @@ export class PerformanceDetailComponent implements OnInit {
 
   myPerformance: any;
   checkboxFlag: any;
-  comment: string;
+  comment: string="";
   allComments= [];
 
   @ViewChild('videoPlayer') videoplayer: any;
@@ -30,6 +30,7 @@ export class PerformanceDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.performanceService.getPerformance(params.id).subscribe(performance => {
+        console.log(performance)
         this.myPerformance = performance;
         this.videoSource = performance.video_url;
         this.allComments = performance.comments;
@@ -39,6 +40,24 @@ export class PerformanceDetailComponent implements OnInit {
         }
       })
     })
+  }
+
+  ngAfterViewChecked() {
+    if (this.videoplayer) {
+      let that = this;
+      this.videoplayer.nativeElement.addEventListener('ended', e => {
+        that.reset();
+      }, false);
+    }
+  }
+
+  reset(){
+    if (this.videoplayer) {
+      this.videoplayer.nativeElement.currentTime = 0;
+      this.videoplayer.nativeElement.pause();
+    }
+    this.pauseClass = "fa-undo";
+    this.pauseText = "replay";
   }
 
   toggle() {
@@ -59,6 +78,7 @@ export class PerformanceDetailComponent implements OnInit {
     } else {
       this.myPerformance.likes.splice(this.myPerformance.likes.indexOf(this.myPerformance.user._id),1)
     }
+    this.performanceService.changeLikes(this.myPerformance._id, this.sessionService.user._id, this.checkboxFlag).subscribe()
   }
 
   post(){

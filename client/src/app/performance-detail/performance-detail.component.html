@@ -15,13 +15,12 @@
       </div>
     </div>
     <div class="information">
-      <ul>
-        <li>Uploaded by:
-          <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic"> {{myPerformance.user.username}}</li>
-        <li>Published on: {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</li>
-        <li>Views: {{myPerformance.views}}</li>
-        <li>Likes: {{myPerformance.likes.length}}</li>
-      </ul>
+          <h1 class="clip-text clip-text--cover">{{myPerformance.song.title}}</h1>
+        <div>Uploaded by:&nbsp;
+          <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic">&nbsp;{{myPerformance.user.username}}</div>
+        <div>Published on: {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</div>
+        <div>Views: {{myPerformance.views}}</div>
+        <div>Likes❤️: {{myPerformance.likes.length}}</div>
       <section>
         <div class="button">
           <a href="" class="twitter-follow-button" data-show-count="false" data-size="large">{{myPerformance.user.username}}</a>
@@ -47,15 +46,27 @@
         </div>
         <div class="buttonsWrap">
           <div class="floatRight">
-            <button class="btn">CANCEL</button>
-            <button class="btn green" (click)="post()">COMMENT</button>
+            <button class="btn" (click)="comment=''">CANCEL</button>
+            <button (click)="post()" [ngClass]="{'btn':true, 'green':true, 'greensolid':comment.length}">COMMENT</button>
           </div>
         </div>
       </div>
     </div>
     <div class="pastComments">
-      <div *ngFor="let c of allComments">
-        {{c.comment}} by {{c.user.username}} on {{c.date | date:'yyyy-MM-dd HH:mm'}}
+      <div *ngFor="let c of allComments" class="eachComment">
+          <div class="authorThumbnail">
+              <img class="profilepic" src="{{c.user.profilePic}}" alt="profilepic">
+          </div>
+          <div class="commentSection">
+            <div class="nameAndDate">
+              <p id="commentUserName">{{c.user.username}}</p>
+              <p id="on"> on </p>
+              <p id="commentDate">{{c.date | date:'yyyy-MM-dd HH:mm'}}</p>
+            </div>
+            <div class="content">
+              <p>{{c.comment}}</p>
+            </div>
+          </div>
       </div>
     </div>
   </div>

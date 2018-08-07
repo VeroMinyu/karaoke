@@ -22,7 +22,7 @@ export class PerformanceService {
     this.socket = io(BASEURL);
     this.socket.on('connect', () => console.log("Connected to WS"));
 
-    this.socket.on('newPerformanceNotification',(data) => {
+    this.socket.on('newPerformanceNotification', (data) => {
       this.sessionService.isLogged().subscribe(user => {
         if (user) {
           this.notification = data;
@@ -71,7 +71,7 @@ export class PerformanceService {
     return this.http.post(`${BASEURL}/api/performance`, fd, this.options).pipe(
       map((res: Response) => {
         const performance = res.json();
-        this.socket.emit('newPerformanceNotification', { 
+        this.socket.emit('newPerformanceNotification', {
           user: performance.user,
           video: performance._id
         });
@@ -94,8 +94,17 @@ export class PerformanceService {
     );
   }
 
-  addComment(comment:string, performanceId:string, userId:string): Observable<object>{
-    return this.http.post(`${BASEURL}/api/comments`, {comment, performanceId, userId}, this.options).pipe(
+  addComment(comment: string, performanceId: string, userId: string): Observable<object> {
+    return this.http.post(`${BASEURL}/api/comments`, { comment, performanceId, userId }, this.options).pipe(
+      map((res: Response) => {
+        return res.json();
+      }),
+      catchError(e => of(this.errorHandler(e)))
+    )
+  }
+
+  changeLikes(performanceId: string, userId: string, status: boolean): Observable<object> {
+    return this.http.post(`${BASEURL}/api/comments/likes`, { performanceId, userId, status }, this.options).pipe(
       map((res: Response) => {
         return res.json();
       }),
