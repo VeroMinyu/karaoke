@@ -20,8 +20,8 @@ router.get('/', ensureLoggedIn(), (req, res, next) => {
     .catch(e => res.status(500).json({ message: e.message }));
 });
 
-router.get('/user/:id', ensureLoggedIn(), (req, res, next) => {
-  Performance.find({user: req.params.id})
+router.get('/user', ensureLoggedIn(), (req, res, next) => {
+  Performance.find({user: req.user._id})
     .sort({ createdAt: -1 })
     .populate("song")
     .then(perf => res.status(200).json(perf))

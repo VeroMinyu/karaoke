@@ -89,6 +89,15 @@ router.post("/subscribe", ensureLoggedIn(), (req, res, next) => {
   }
 });
 
+router.get("/subscriptions", ensureLoggedIn(), (req, res) => {
+  User.findById(req.user._id)
+    .populate("following", "username profilePic")
+    .then(user => {
+      res.status(200).json(user.following)
+    })
+    .catch(e => res.status(500).json({ message: e.message }));
+});
+
 router.get("/logout", (req, res) => {
   req.logout();
   res.status(200).json({ message: "logged out" });

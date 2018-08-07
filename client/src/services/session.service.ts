@@ -12,6 +12,7 @@ interface User {
   _id?: string;
   username: string;
   profilePic: string;
+  following?: Array<any>;
 }
 
 @Injectable()
@@ -58,6 +59,15 @@ export class SessionService {
         let user = res.json();
         this.user = user;
         return this.user;
+      }),
+      catchError(e => of(this.errorHandler(e)))
+    );
+  }
+
+  getSubscriptions() {
+    return this.http.get(`${BASEURL}/api/auth/subscriptions`, this.options).pipe(
+      map((res: Response) => {
+        return res.json();
       }),
       catchError(e => of(this.errorHandler(e)))
     );
