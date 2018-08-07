@@ -24,7 +24,7 @@ export class SessionService {
     this.isLogged().subscribe();
   }
 
-  isLogged(): Observable<object> {
+  isLogged(): Observable<User> {
     return this.http.get(`${BASEURL}/api/auth/currentuser`, this.options).pipe(
       map((res: Response) => {
         this.user = res.json();
