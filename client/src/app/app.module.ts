@@ -28,7 +28,12 @@ import { FilterPerformancesPipe } from './pipes/filter-performances.pipe';
 import { ProfileComponent } from './profile/profile.component';
 import { PerformanceService } from '../services/performances.service';
 import { ChartsModule } from 'ng2-charts';
-import { JwSocialButtonsModule } from 'jw-angular-social-buttons'
+import { PostModule, Post } from '@thisissoon/angular-post';
+
+
+const postProviders = [
+  { provide: Post, useFactory: () => window['postPlatform'] }
+];
 
 @NgModule({
   declarations: [
@@ -55,7 +60,7 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons'
     FormsModule,
     HttpModule,
     ChartsModule,
-    JwSocialButtonsModule
+    PostModule.forRoot(postProviders)
   ],
   providers: [
     SessionService,

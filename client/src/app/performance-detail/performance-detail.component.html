@@ -14,9 +14,22 @@
         <input [(ngModel)]="checkboxFlag" id="toggle-heart" type="checkbox" (change)="changeLikes()" />
         <label for="toggle-heart" aria-label="like">❤</label>
       </div>
-      <fb-like url={{url}}></fb-like>
-      <tweet url={{url}} text={{text}}></tweet>
-      <google-plus url={{url}}></google-plus>
+      <sn-post [url]="url" [title]="karaoke" [options]="{
+    buttons: [
+      { id: 'facebook' },
+      { id: 'twitter' },
+      { id: 'googleplus' }
+    ],
+    label: false,
+    radius: 'circle',
+    size: 48,
+    counter: false,
+    layout: 'horizontal',
+    jumbo: false,
+    padding: 10,
+    view: 'auto',
+    shareNewWindow: true
+  }"></sn-post>
     </div>
     <div class="commentWrap">
       <div class="commentBox">

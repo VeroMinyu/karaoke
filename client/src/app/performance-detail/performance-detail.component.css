@@ -163,22 +163,10 @@ input[type=text]:focus {
 }
 
 /* social media sharing */
-fb-like{
-  position:absolute;
-  bottom: 15px;
-  left: 9px;
-}
-
-tweet{
-  position:absolute;
-  bottom: 9px;
-  left: 125px;
-}
-
-google-plus{
-  position:absolute;
-  bottom: 9px;
-  left: 197px;
+sn-post{
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
 }
 
 /* heart */
