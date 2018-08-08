@@ -122,12 +122,12 @@
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
   
-  background: lightgrey;
+  background: black;
   border-radius: 100px;
   /*border: 0px solid #fff;*/
   height: 100px;
   width: 100px;
-  box-shadow: 0 3px 100px -3px #fff;
+  box-shadow: 0 3px 100px -3px purple;
 }
 .discoball img {
   height: 100px;
