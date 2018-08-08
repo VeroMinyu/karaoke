@@ -2,10 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PerformanceService } from '../../services/performances.service';
 import { ActivatedRoute } from '@angular/router';
 import { SessionService } from '../../services/session.service';
-import { GoogleChartComponent } from 'ng2-google-charts';
-import * as _ from "lodash";
-import { getDefaultService } from '../../../node_modules/@types/selenium-webdriver/edge';
-
 
 @Component({
   selector: 'app-performance-detail',
