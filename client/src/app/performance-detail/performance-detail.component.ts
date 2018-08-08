@@ -15,7 +15,7 @@ import { SessionService } from '../../services/session.service';
 export class PerformanceDetailComponent implements OnInit {
 
   user: any;
-  
+
   myPerformance: any;
   checkboxFlag: any;
   comment: string = "";
@@ -23,7 +23,7 @@ export class PerformanceDetailComponent implements OnInit {
 
   today1 = new Date();
   today = this.today1.getTime();
-  month = this.today1.getMonth()+1;
+  month = this.today1.getMonth() + 1;
   last = this.today - (6 * 24 * 60 * 60 * 1000);
   allViewsTime = [];
   filteredViews = [];
@@ -35,6 +35,7 @@ export class PerformanceDetailComponent implements OnInit {
   ];
 
   @ViewChild('videoPlayer') videoplayer: any;
+  height: number = 0;
   videoSource: string = "";
   pauseText: string = "Play";
   pauseClass: string = "fa-play-circle";
@@ -70,6 +71,11 @@ export class PerformanceDetailComponent implements OnInit {
       this.videoplayer.nativeElement.onended = () => {
         this.reset();
       };
+    }
+    if (this.videoplayer) {
+      setTimeout(() => {
+        this.height = this.videoplayer.nativeElement.clientHeight;
+      });
     }
   }
 
@@ -147,7 +153,7 @@ export class PerformanceDetailComponent implements OnInit {
         return date;
       };
     while (currentDate <= endDate) {
-      dates.push(new Date(currentDate).getDate().toString()+ '/'+ (new Date(currentDate).getMonth()+1).toString());
+      dates.push(new Date(currentDate).getDate().toString() + '/' + (new Date(currentDate).getMonth() + 1).toString());
       currentDate = addDays.call(currentDate, 1);
     }
     return dates;
