@@ -73,4 +73,8 @@ app.use(express.static(path.join(__dirname, 'videos')));
 
 require('./routes')(app);
 
+app.get('*', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html')
+});
+
 module.exports = app;
