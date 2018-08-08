@@ -1,6 +1,7 @@
-<div id="song" class="container" *ngIf="myPerformance">
-  <div class="main">
-    <div class="video-wrap">
+<div class="main" *ngIf="myPerformance && videoSource">
+  <h1 class="clip-text clip-text--cover hidden">{{myPerformance.song.title}}</h1>
+  <div class="video-wrap">
+    <div class="videoAndButtonAndHeart">
       <video id="myVideo" #videoPlayer>
         <source src={{videoSource}} type="video/webm"> Your browser does not support HTML5 video.
       </video>
@@ -14,67 +15,69 @@
         <label for="toggle-heart" aria-label="like">❤</label>
       </div>
     </div>
-    <div class="information">
-      <tweet url="http://jasonwatmore.com" text="Jason Watmore's Blog"></tweet>
-      <h1 class="clip-text clip-text--cover">{{myPerformance.song.title}}</h1>
-      <div>Uploaded by :&nbsp;
-        <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic">&nbsp;{{myPerformance.user.username}}
-      </div>
-      <div>Published on : {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</div>
-      <div>Views : {{myPerformance.views.length}}</div>
-      <!-- <google-chart [data]="lineChartData"></google-chart> -->
-      <div>
-        <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true">
-        </canvas>
-      </div>
-      <div>Likes ❤️ : {{myPerformance.likes.length}}</div>
-      <section *ngIf="myPerformance.user._id !== sessionService.user._id" (click)="toggleSubscribe(myPerformance.user._id);">
-        <div class="button">
-          <div class="twitter-follow-button" data-show-count="false" data-size="large"><p id="specialFont">{{myPerformance.user.username}}</p></div>
+    <div class="commentWrap">
+      <div class="commentBox">
+        <div class="authorThumbnail">
+          <img class="profilepic" src="{{user.profilePic}}" alt="profilepic">
         </div>
-        <div class="cover">
-          <div [ngClass]="{'innie': true, 'unsubscribe': sessionService.user.following.includes(myPerformance.user._id)}"></div>
-          <div class="spine"></div>
-          <div [ngClass]="{'outie': true, 'unsubscribe': sessionService.user.following.includes(myPerformance.user._id)}" class="outie"></div>
+        <div class="inputBox">
+          <div class="inputEnter">
+            <input class="input" type="text" placeholder="Add your comment..." [(ngModel)]="comment" name="comment">
+            <span class="underline"></span>
+          </div>
+          <div class="buttonsWrap">
+            <div class="floatRight">
+              <button class="btn" (click)="comment=''">CANCEL</button>
+              <button (click)="post()" [ngClass]="{'btn':true, 'green':true, 'greensolid':comment.length}">COMMENT</button>
+            </div>
+          </div>
         </div>
-        <div class="shadow"></div>
-      </section>
+      </div>
+      <div class="pastComments">
+        <div *ngFor="let c of allComments" class="eachComment">
+          <div class="authorThumbnail">
+            <img class="profilepic" src="{{c.user.profilePic}}" alt="profilepic">
+          </div>
+          <div class="commentSection">
+            <div class="nameAndDate">
+              <p id="commentUserName">{{c.user.username}}</p>
+              <p id="on"> on </p>
+              <p id="commentDate">{{c.date | date:'yyyy-MM-dd HH:mm'}}</p>
+            </div>
+            <div class="content">
+              <p>{{c.comment}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="hiddenLine"></span>
     </div>
   </div>
-  <div class="commentWrap">
-    <div class="commentBox">
-      <div class="authorThumbnail">
-        <img class="profilepic" src="{{user.profilePic}}" alt="profilepic">
-      </div>
-      <div class="inputBox">
-        <div class="inputEnter">
-          <input class="input" type="text" placeholder="Add your comment..." [(ngModel)]="comment" name="comment">
-          <span class="underline"></span>
-        </div>
-        <div class="buttonsWrap">
-          <div class="floatRight">
-            <button class="btn" (click)="comment=''">CANCEL</button>
-            <button (click)="post()" [ngClass]="{'btn':true, 'green':true, 'greensolid':comment.length}">COMMENT</button>
-          </div>
-        </div>
-      </div>
+  <div class="information" [style.height.px]="height">
+    <h1 class="clip-text clip-text--cover show">{{myPerformance.song.title}}</h1>
+    <div>Uploaded by :&nbsp;
+      <img class="profilepic" src="{{myPerformance.user.profilePic}}" alt="profilepic">&nbsp;{{myPerformance.user.username}}
     </div>
-    <div class="pastComments">
-      <div *ngFor="let c of allComments" class="eachComment">
-        <div class="authorThumbnail">
-          <img class="profilepic" src="{{c.user.profilePic}}" alt="profilepic">
-        </div>
-        <div class="commentSection">
-          <div class="nameAndDate">
-            <p id="commentUserName">{{c.user.username}}</p>
-            <p id="on"> on </p>
-            <p id="commentDate">{{c.date | date:'yyyy-MM-dd HH:mm'}}</p>
-          </div>
-          <div class="content">
-            <p>{{c.comment}}</p>
-          </div>
+    <div>Published on : {{myPerformance.createdAt | date:'yyyy-MM-dd HH:mm' }}</div>
+    <div>Views : {{myPerformance.views.length}}</div>
+    <!-- <google-chart [data]="lineChartData"></google-chart> -->
+    <div>
+      <canvas baseChart [chartType]="'line'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true">
+      </canvas>
+    </div>
+    <div>Likes ❤️ : {{myPerformance.likes.length}}</div>
+    <section *ngIf="myPerformance.user._id !== sessionService.user._id" (click)="toggleSubscribe(myPerformance.user._id);">
+      <div class="button">
+        <div class="twitter-follow-button" data-show-count="false" data-size="large">
+          <p id="specialFont">{{myPerformance.user.username}}</p>
         </div>
       </div>
-    </div>
+      <div class="cover">
+        <div [ngClass]="{'innie': true, 'unsubscribe': sessionService.user.following.includes(myPerformance.user._id)}"></div>
+        <div class="spine"></div>
+        <div [ngClass]="{'outie': true, 'unsubscribe': sessionService.user.following.includes(myPerformance.user._id)}" class="outie"></div>
+      </div>
+      <div class="shadow"></div>
+    </section>
   </div>
 </div>
