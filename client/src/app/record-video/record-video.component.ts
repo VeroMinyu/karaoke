@@ -23,6 +23,7 @@ export class RecordVideoComponent implements OnInit {
 
   @Input() songId: string;
   @Input() reset: boolean;
+  @Input() finishLive: boolean;
   @Output() onStartRecording = new EventEmitter<void>();
   @Output() onStopRecording = new EventEmitter<void>();
 
@@ -38,6 +39,9 @@ export class RecordVideoComponent implements OnInit {
         this.recording = false;
         this.finishRecording = false;
         this.video.nativeElement.src = null;
+      }
+      if (propName == "finishLive" && !changedProp.isFirstChange() && changedProp.currentValue) {
+        this.stopRecording();
       }
     }
   }

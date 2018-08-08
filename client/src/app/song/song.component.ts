@@ -31,6 +31,7 @@ export class SongComponent implements OnInit {
 
   live: boolean = false;
   resetLive: boolean = false;
+  finishLive: boolean = false;
   showLiveBtn: boolean = true;
   showSingBtn: boolean = true;
 
@@ -45,11 +46,11 @@ export class SongComponent implements OnInit {
           this.videoplayer.nativeElement.src = this.videoSource;
         }
 
-        this.reset();
+        this.reset(false);
         this.songsService.getRecommendations(this.song.artist).subscribe(list => {
           for (var i = 0; i < list.length; i++) {
             if (this.song.video_id == list[i].video_id) {
-              list.splice(i, 1)
+              list.splice(i, 1);
             }
           }
           this.recommendations = list;
@@ -60,10 +61,12 @@ export class SongComponent implements OnInit {
 
   ngAfterViewChecked() {
     if (this.videoplayer) {
-      let that = this;
-      this.videoplayer.nativeElement.addEventListener('ended', e => {
-        that.reset();
-      }, false);
+      this.videoplayer.nativeElement.onended = () => {
+        if (this.live) {
+          this.finishLive = true;
+        }
+        this.reset();
+      };
       setTimeout(() => {
         this.height = this.videoplayer.nativeElement.clientHeight + 45;
       });
@@ -80,12 +83,11 @@ export class SongComponent implements OnInit {
     }
     if (resetIcons) {
       this.pauseText = "Sing";
-      this.pauseClass = "fa-play-circle";
-      this.liveClass = "fa-microphone";
-      this.live = false;
+      this.pauseClass = "fa-undo";
+      this.liveClass = "fa-undo";
     }
 
-    this.lyrics = this.song.lyrics;
+    this.lyrics = this.song.lyrics.slice(0);
     this.currentTime = 0;
     this.line1 = "";
     this.line2 = "";
@@ -139,6 +141,7 @@ export class SongComponent implements OnInit {
 
   startLive() {
     this.live = true;
+    this.finishLive = false;
     this.resetLive = true;
     this.showLiveBtn = false;
     this.showSingBtn = false;
@@ -150,9 +153,6 @@ export class SongComponent implements OnInit {
   }
 
   stopRecording() {
-    this.pauseClass = "fa-undo";
-    this.liveClass = "fa-undo";
-
-    this.reset(false);
+    this.reset();
   }
 }

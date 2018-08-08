@@ -30,6 +30,7 @@
         <app-record-video 
           [songId]="song._id" 
           [reset]="resetLive"
+          [finishLive]="finishLive"
           (onStartRecording)="startRecording();"
           (onStopRecording)="stopRecording();"></app-record-video>
       </div>
