@@ -5,27 +5,42 @@
 
 .main {
     display: flex;
-    margin-bottom: 30px;
+    width: 1200px;
+    max-width: 100%;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+.hidden{
+  display: none;
+}
+
+.videoAndButtonAndHeart{
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .video-wrap{
   position: relative;
+  max-width: 100%;
+  width: 70%;
+  padding: 0px 20px;
 }
 
 .video-wrap:hover #video-controls {
   opacity: 1;
 }
 
+#myVideo{
+  width: 100%;
+  display: block;
+}
+
 #video-controls {
   position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 87px);
   z-index: 2;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   opacity: 0;
   transition: opacity 800ms;
 }
@@ -54,7 +69,8 @@
 }
 
 .information{
-  padding-left:100px;
+  max-width: 100%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -74,7 +90,6 @@
 }
 
 .commentBox, .eachComment{
-  width: 640px;
   display: flex;
   align-items: center;
 }
@@ -147,17 +162,35 @@ input[type=text]:focus {
   box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
 }
 
+/* social media sharing */
+fb-like{
+  position:absolute;
+  bottom: 15px;
+  left: 9px;
+}
+
+tweet{
+  position:absolute;
+  bottom: 9px;
+  left: 125px;
+}
+
+google-plus{
+  position:absolute;
+  bottom: 9px;
+  left: 197px;
+}
 
 /* heart */
 #heart-wrap{
   position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
   text-align: center;
-  width: 100px;
-  height: 100px;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
   font-size: 2em;
+  height: 70px;
+  width: 100px;
 }
 
 [id='toggle-heart'] {
@@ -171,7 +204,7 @@ input[type=text]:focus {
   will-change: font-size;
   -webkit-animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
           animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
-  line-height: 100px;
+  line-height: 70px;
 }
 [id='toggle-heart']:checked + label:before, [id='toggle-heart']:checked + label:after {
   -webkit-animation: inherit;
@@ -205,7 +238,7 @@ input[type=text]:focus {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
-  line-height: 100px;
+  line-height: 70px;
 }
 [for='toggle-heart']:before, [for='toggle-heart']:after {
   position: absolute;
@@ -403,3 +436,39 @@ section:hover .shadow {
 }
 
 #specialFont:hover { cursor: pointer; }
+
+
+/* Responsive design */
+@media screen and (max-width: 950px){
+  .main {
+    width: 100%;
+    display: block;
+    padding: 30px;
+  }
+
+  .video-wrap{
+    position: relative;
+    width: 100%;
+    padding: 0px;
+  }
+
+  .information{
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .hidden{
+    display: block;
+  }
+
+  .show{
+    display: none;
+  }
+
+  .hiddenLine{
+    font-size: 20px;
+    border-bottom: 3px solid grey;
+    display:block;
+    margin-top: 20px;
+  }
+}

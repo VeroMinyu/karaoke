@@ -28,6 +28,7 @@ import { FilterPerformancesPipe } from './pipes/filter-performances.pipe';
 import { ProfileComponent } from './profile/profile.component';
 import { PerformanceService } from '../services/performances.service';
 import { ChartsModule } from 'ng2-charts';
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons'
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ChartsModule } from 'ng2-charts';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpModule,
-    ChartsModule
+    ChartsModule,
+    JwSocialButtonsModule
   ],
   providers: [
     SessionService,
