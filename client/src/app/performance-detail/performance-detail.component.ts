@@ -30,7 +30,6 @@ export class PerformanceDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.performanceService.getPerformance(params.id).subscribe(performance => {
-        console.log(performance)
         this.myPerformance = performance;
         this.videoSource = performance.video_url;
         this.allComments = performance.comments;
