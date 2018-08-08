@@ -53,7 +53,7 @@ import { ChartsModule } from 'ng2-charts';
     RouterModule.forRoot(routes),
     FormsModule,
     HttpModule,
-    ChartsModule
+    ChartsModule,
   ],
   providers: [
     SessionService,
