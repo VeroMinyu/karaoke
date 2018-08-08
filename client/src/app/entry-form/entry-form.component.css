@@ -36,3 +36,9 @@
   color: #fff;
   width: 100%;
 }
+
+.lrc-info {
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}

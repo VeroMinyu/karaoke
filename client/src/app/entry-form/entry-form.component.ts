@@ -5,7 +5,10 @@ import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-entry-form",
   templateUrl: "./entry-form.component.html",
-  styleUrls: ["./entry-form.component.css"],
+  styleUrls: [
+    './entry-form.component.css',
+    '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
+  ],
   providers: [SongsService]
 })
 export class EntryFormComponent implements OnInit {
