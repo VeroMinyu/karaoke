@@ -162,6 +162,24 @@ input[type=text]:focus {
   box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA;
 }
 
+/* social media sharing */
+fb-like{
+  position:absolute;
+  bottom: 15px;
+  left: 9px;
+}
+
+tweet{
+  position:absolute;
+  bottom: 9px;
+  left: 125px;
+}
+
+google-plus{
+  position:absolute;
+  bottom: 9px;
+  left: 197px;
+}
 
 /* heart */
 #heart-wrap{
@@ -171,7 +189,7 @@ input[type=text]:focus {
   right: 0;
   z-index: 3;
   font-size: 2em;
-  height: 100px;
+  height: 70px;
   width: 100px;
 }
 
@@ -186,7 +204,7 @@ input[type=text]:focus {
   will-change: font-size;
   -webkit-animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
           animation: heart 1s cubic-bezier(0.17, 0.89, 0.32, 1.49);
-  line-height: 100px;
+  line-height: 70px;
 }
 [id='toggle-heart']:checked + label:before, [id='toggle-heart']:checked + label:after {
   -webkit-animation: inherit;
@@ -220,7 +238,7 @@ input[type=text]:focus {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
-  line-height: 100px;
+  line-height: 70px;
 }
 [for='toggle-heart']:before, [for='toggle-heart']:after {
   position: absolute;

@@ -14,6 +14,9 @@
         <input [(ngModel)]="checkboxFlag" id="toggle-heart" type="checkbox" (change)="changeLikes()" />
         <label for="toggle-heart" aria-label="like">❤</label>
       </div>
+      <fb-like url={{url}}></fb-like>
+      <tweet url={{url}} text={{text}}></tweet>
+      <google-plus url={{url}}></google-plus>
     </div>
     <div class="commentWrap">
       <div class="commentBox">

@@ -15,6 +15,7 @@ import { SessionService } from '../../services/session.service';
 export class PerformanceDetailComponent implements OnInit {
 
   user: any;
+  url: any;
 
   myPerformance: any;
   checkboxFlag: any;
@@ -43,6 +44,7 @@ export class PerformanceDetailComponent implements OnInit {
   constructor(private performanceService: PerformanceService, private route: ActivatedRoute, public sessionService: SessionService) { }
 
   ngOnInit() {
+    this.url = window.location.href;
     this.route.params.subscribe(params => {
       this.performanceService.getPerformance(params.id).subscribe(performance => {
         //chartData
