@@ -104,3 +104,56 @@
 #song .recommendation-wrap .recommendation {
   margin-bottom: 10px;
 }
+
+/* discoball */
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+.discoball {
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: hue;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  
+  background: lightgrey;
+  border-radius: 100px;
+  /*border: 0px solid #fff;*/
+  height: 100px;
+  width: 100px;
+  box-shadow: 0 3px 100px -3px #fff;
+}
+.discoball img {
+  height: 100px;
+  width: 100px;
+}
+.hanger {
+  background: #eee;
+  width: 1px;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #fff;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.headerWrap{
+  display:flex;
+  justify-content: center;
+}
+
+.black{
+  background-color: black;
+  height:100vh;
+}
+
+.white{
+  background-color: white;
+}

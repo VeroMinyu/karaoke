@@ -1,47 +1,59 @@
-<section id="song" class="container" *ngIf="song && videoSource">
-  <div class="title">
-    <h1 class="clip-text clip-text--cover">{{song.title}}</h1>
-    <h2>{{song.artist}}</h2>
-  </div>
-  <div class="columns">
-    <div class="main">
-      <div class="video-wrap">
-        <video id="myVideo" #videoPlayer>
-          <source src={{videoSource}} type="video/mp4"> Your browser does not support HTML5 video.
-        </video>
-      </div>
-      <div class="button-wrap">
-        <div id="video-controls">
-          <button *ngIf="showSingBtn" (click)="toggle()">
-            <i class="fa {{pauseClass}}"></i> {{pauseText}}
-          </button>
-          <button *ngIf="showLiveBtn" (click)="startLive()">
-            <i class="fa {{liveClass}}"></i> Sing & Record
-          </button>
+<section id="song" class="{{colorChange}}" *ngIf="song && videoSource">
+  <div class="container">
+    <div class="headerWrap">
+      <div class="discoBallContainer" [ngStyle]="showDisco">
+        <div class="hanger"></div>
+        <div class="discoball">
+          <img src="https://drive.google.com/uc?id=0B7QrEBMF4GTGQ3lfRzV0cU5rNHM" alt="">
         </div>
       </div>
-      <div class="lyrics">
-        <p class="karaoke active {{colorClass}}">&nbsp;{{line1}}&nbsp;</p>
-        <p class="karaoke">&nbsp;{{line2}}&nbsp;</p>
+      <div class="title">
+        <h1 class="clip-text clip-text--cover">{{song.title}}</h1>
+        <h2>{{song.artist}}</h2>
+      </div>
+      <div class="discoBallContainer" [ngStyle]="showDisco">
+        <div class="hanger"></div>
+        <div class="discoball">
+          <img src="https://drive.google.com/uc?id=0B7QrEBMF4GTGQ3lfRzV0cU5rNHM" alt="">
+        </div>
       </div>
     </div>
-    <div class="recommendation-wrap" [style.height.px]="height">
-      <div *ngIf="live">
-        <app-record-video 
-          [songId]="song._id" 
-          [reset]="resetLive"
-          [finishLive]="finishLive"
-          (onStartRecording)="startRecording();"
-          (onStopRecording)="stopRecording();"></app-record-video>
-      </div>
-      <div class="recommendation" *ngFor="let r of recommendations">
-        <div *ngIf="r._id" [routerLink]="['/karaoke', r._id]">
-          <img src="{{r.video_img}}" alt="{{r.title}}">
-          <h4>{{r.title}}</h4>
+    <div class="columns">
+      <div class="main">
+        <div class="video-wrap">
+          <video id="myVideo" #videoPlayer>
+            <source src={{videoSource}} type="video/mp4"> Your browser does not support HTML5 video.
+          </video>
         </div>
-        <div *ngIf="!r._id" [routerLink]="['/karaoke', 'form', song.artist, r.id, r.title]">
-          <img src="{{r.thumbnails.high.url}}" alt="{{r.title}}">
-          <h4>{{r.title}}</h4>
+        <div class="button-wrap">
+          <div id="video-controls">
+            <button *ngIf="showSingBtn" (click)="toggle()">
+              <i class="fa {{pauseClass}}"></i> {{pauseText}}
+            </button>
+            <button *ngIf="showLiveBtn" (click)="startLive()">
+              <i class="fa {{liveClass}}"></i> Sing & Record
+            </button>
+          </div>
+        </div>
+        <div class="lyrics">
+          <p class="karaoke active {{colorClass}}">&nbsp;{{line1}}&nbsp;</p>
+          <p class="karaoke">&nbsp;{{line2}}&nbsp;</p>
+        </div>
+      </div>
+      <div class="recommendation-wrap" [style.height.px]="height">
+        <div *ngIf="live">
+          <app-record-video [songId]="song._id" [reset]="resetLive" [finishLive]="finishLive" (onStartRecording)="startRecording();"
+            (onStopRecording)="stopRecording();"></app-record-video>
+        </div>
+        <div class="recommendation" *ngFor="let r of recommendations">
+          <div *ngIf="r._id" [routerLink]="['/karaoke', r._id]">
+            <img src="{{r.video_img}}" alt="{{r.title}}">
+            <h4>{{r.title}}</h4>
+          </div>
+          <div *ngIf="!r._id" [routerLink]="['/karaoke', 'form', song.artist, r.id, r.title]">
+            <img src="{{r.thumbnails.high.url}}" alt="{{r.title}}">
+            <h4>{{r.title}}</h4>
+          </div>
         </div>
       </div>
     </div>

@@ -15,7 +15,9 @@ import { environment } from "../../environments/environment";
 export class SongComponent implements OnInit {
   song: any;
   recommendations: any;
-
+  colorChange: any;
+  showDisco = {'display': 'none'}
+  
   @ViewChild('videoPlayer') videoplayer: any;
   videoSource: string = "";
   height: number = 0;
@@ -103,11 +105,15 @@ export class SongComponent implements OnInit {
       this.karaoke();
       this.pauseText = "Pause";
       this.pauseClass = "fa-pause-circle";
+      this.colorChange = 'black';
+      this.showDisco = {'display': 'inline-block'}
     } else {
       this.videoplayer.nativeElement.pause();
       clearInterval(this.interval);
       this.pauseText = "Sing";
       this.pauseClass = "fa-play-circle";
+      this.colorChange = 'white';
+      this.showDisco = {'display': 'none'}
     }
   }
 
@@ -155,4 +161,5 @@ export class SongComponent implements OnInit {
   stopRecording() {
     this.reset();
   }
+  
 }

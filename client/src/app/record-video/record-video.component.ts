@@ -125,6 +125,7 @@ export class RecordVideoComponent implements OnInit {
 
   capture() {
     var context = this.canvas.nativeElement.getContext("2d").drawImage(this.video.nativeElement, 0, 0, 277.59, 208.19);
-    this.screenShot=this.canvas.nativeElement.toDataURL("image/jpeg")
+    this.screenShot = this.canvas.nativeElement.toDataURL("image/jpeg")
   }
+
 }
