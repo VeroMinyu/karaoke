@@ -1,23 +1,176 @@
 <section id="song" class="{{colorChange}}" *ngIf="song && videoSource">
   <div class="container">
     <div class="headerWrap">
+      <div class="filterMenu" [ngStyle]="showMenu">
+        <nav class="menu">
+          <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+          <label class="menu-open-button" for="menu-open">
+            <span class="hamburger hamburger-1"></span>
+            <span class="hamburger hamburger-2"></span>
+            <span class="hamburger hamburger-3"></span>
+          </label>
+          <a class="menu-item" (click)="changeSkin('disco')">
+            <i class="fas fa-compact-disc"></i>
+          </a>
+          <a class="menu-item" (click)="changeSkin('speaker')">
+            <i class="fas fa-microphone-alt"></i>
+          </a>
+          <a class="menu-item" (click)="changeSkin('ironhack')">
+            <i class="fas fa-heart"></i>
+          </a>
+          <a class="menu-item" (click)="changeSkin('wings')">
+            <i class="fas fa-feather"></i>
+          </a>
+          <a class="menu-item" (click)="changeSkin('atom')">
+            <i class="fas fa-atom"></i>
+          </a>
+        </nav>
+      </div>
+
       <div class="discoBallContainer" [ngStyle]="showDisco">
-        <div class="hanger"></div>
         <div class="discoball">
           <img src="https://ledgeshotel.com/wp-content/uploads/2014/01/coloured_mirror_ball-.png" alt="">
         </div>
       </div>
+
+      <div class="speaker" [ngStyle]="showSpeaker">
+        <div class="speaker__container">
+          <div class="woofer">
+            <div class="sound"></div>
+            <div class="cone"></div>
+            <div class="cap"></div>
+          </div>
+          <div class="woofer">
+            <div class="sound"></div>
+            <div class="cone"></div>
+            <div class="cap"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wingContainer" [ngStyle]="showWings">
+        <div class='wing'>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+        </div>
+        <div class='wing'>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+          <div class='feather'></div>
+        </div>
+      </div>
+
+      <div class='atom' [ngStyle]="showAtom">
+          <div class='atom_particle'>
+            <svg>
+              <circle cx='100' cy='100' fill='none' r='80' stroke-width='5'></circle>
+            </svg>
+          </div>
+          <div class='atom_particle'>
+            <svg>
+              <circle cx='100' cy='100' fill='none' r='80' stroke-width='5'></circle>
+            </svg>
+          </div>
+          <div class='atom_particle'>
+            <svg>
+              <circle cx='100' cy='100' fill='none' r='80' stroke-width='5'></circle>
+            </svg>
+          </div>
+          <div class='atom_particle'>
+            <svg>
+              <circle cx='100' cy='100' fill='none' r='80' stroke-width='5'></circle>
+            </svg>
+          </div>
+      </div>
+        
+
       <div class="title">
         <h1 class="clip-text clip-text--cover">{{song.title}}</h1>
-        <h2>{{song.artist}}</h2>
+        <h2 class="{{changeTextColor}}">{{song.artist}}</h2>
       </div>
+
       <div class="discoBallContainer" [ngStyle]="showDisco">
-        <div class="hanger"></div>
         <div class="discoball">
           <img src="https://ledgeshotel.com/wp-content/uploads/2014/01/coloured_mirror_ball-.png" alt="">
         </div>
       </div>
+
+      <div class="speaker" [ngStyle]="showSpeaker">
+        <div class="speaker__container">
+          <div class="woofer">
+            <div class="sound"></div>
+            <div class="cone"></div>
+            <div class="cap"></div>
+          </div>
+          <div class="woofer">
+            <div class="sound"></div>
+            <div class="cone"></div>
+            <div class="cap"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='atom' [ngStyle]="showAtom">
+          <div class='atom_particle'>
+            <svg>
+              <circle cx='100' cy='100' fill='none' r='80' stroke-width='5'></circle>
+            </svg>
+          </div>
+          <div class='atom_particle'>
+            <svg>
+              <circle cx='100' cy='100' fill='none' r='80' stroke-width='5'></circle>
+            </svg>
+          </div>
+          <div class='atom_particle'>
+            <svg>
+              <circle cx='100' cy='100' fill='none' r='80' stroke-width='5'></circle>
+            </svg>
+          </div>
+          <div class='atom_particle'>
+            <svg>
+              <circle cx='100' cy='100' fill='none' r='80' stroke-width='5'></circle>
+            </svg>
+          </div>
+      </div>
+
+
     </div>
+
     <div class="columns">
       <div class="main">
         <div class="video-wrap">
@@ -48,11 +201,11 @@
         <div class="recommendation" *ngFor="let r of recommendations">
           <div *ngIf="r._id" [routerLink]="['/karaoke', r._id]">
             <img src="{{r.video_img}}" alt="{{r.title}}">
-            <h4>{{r.title}}</h4>
+            <h4 class="{{changeTextColor}}">{{r.title}}</h4>
           </div>
           <div *ngIf="!r._id" [routerLink]="['/karaoke', 'form', song.artist, r.id, r.title]">
             <img src="{{r.thumbnails.high.url}}" alt="{{r.title}}">
-            <h4>{{r.title}}</h4>
+            <h4 class="{{changeTextColor}}">{{r.title}}</h4>
           </div>
         </div>
       </div>

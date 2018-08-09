@@ -16,7 +16,14 @@ export class SongComponent implements OnInit {
   song: any;
   recommendations: any;
   colorChange: any;
+  changeTextColor: any;
+  showMenu: any;
   showDisco = {'display': 'none'}
+  showSpeaker = {'display': 'none'}
+  showTA = {'display': 'none'}
+  showWings = {'display': 'none'}
+  showAtom = {'display': 'none'}
+  activeSkin: any;
   
   @ViewChild('videoPlayer') videoplayer: any;
   videoSource: string = "";
@@ -105,15 +112,41 @@ export class SongComponent implements OnInit {
       this.karaoke();
       this.pauseText = "Pause";
       this.pauseClass = "fa-pause-circle";
+      this.showMenu={'display': 'none'}
       this.colorChange = 'black';
-      this.showDisco = {'display': 'inline-block'}
+      this.changeTextColor = 'whiteText';
+      this.changeSkin2();
     } else {
       this.videoplayer.nativeElement.pause();
       clearInterval(this.interval);
       this.pauseText = "Sing";
       this.pauseClass = "fa-play-circle";
+      this.showMenu={'display': 'block'}
       this.colorChange = 'white';
-      this.showDisco = {'display': 'none'}
+      this.changeTextColor = 'blackText';
+      this.changeSkin3();
+    }
+  }
+
+  changeSkin2(){
+    switch (this.activeSkin) {
+      case 'disco': this.showDisco={'display': 'inline-block'}; break;
+      case 'speaker': this.showSpeaker={'display': 'inline-block'}; break;
+      case 'ironhack': this.showTA={'display': 'inline-block'}; break;
+      case 'wings': this.showWings={'display': 'inline-block'}; break;
+      case 'atom': this.showAtom={'display': 'inline-block'}; break;
+      default: this.showDisco={'display': 'inline-block'}; break;
+    }
+  }
+
+  changeSkin3(){
+    switch (this.activeSkin) {
+      case 'disco': this.showDisco={'display': 'none'}; break;
+      case 'speaker': this.showSpeaker={'display': 'none'}; break;
+      case 'ironhack': this.showTA={'display': 'none'}; break;
+      case 'wings': this.showWings={'display': 'none'}; break;
+      case 'atom': this.showAtom={'display': 'none'}; break;
+      default: this.showDisco={'display': 'none'}; break;
     }
   }
 
@@ -160,6 +193,10 @@ export class SongComponent implements OnInit {
 
   stopRecording() {
     this.reset();
+  }
+
+  changeSkin(skin){
+    this.activeSkin = skin;
   }
   
 }
