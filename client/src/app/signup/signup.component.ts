@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
   feedback;
 
   ngOnInit() {
-    this.uploader.onSuccessItem = (item, response) => {
+    this.uploader.onSuccessItem = (item, response, status, headers) => {
       this.feedback = JSON.parse(response).message;
     };
 
@@ -54,8 +54,18 @@ export class SignupComponent implements OnInit {
         form.append('password', password);
       };
       this.uploader.uploadAll();
-      this.uploader.onCompleteItem = () => {
-        this.router.navigate(['/login']);
+      this.uploader.onCompleteItem = (item, response, status, headers) => {
+        if (status === 200) {
+          this.router.navigate(['/']);
+        } else {
+          const res = JSON.parse(response);
+
+          if (res.hasOwnProperty("message")) {
+            this.error = res.message;
+          } else {
+            this.error = "Error";
+          }
+        }
       };
     }
   }
