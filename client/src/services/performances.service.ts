@@ -28,7 +28,7 @@ export class PerformanceService {
           this.notification = data;
           setTimeout(() => {
             this.notification = null;
-          }, 6000);
+          }, 20000);
         }
       });
     });

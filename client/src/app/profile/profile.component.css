@@ -61,4 +61,5 @@ h1 {
 
 .user {
   display: flex;
+  margin-bottom: 15px;
 }

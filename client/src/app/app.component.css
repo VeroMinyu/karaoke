@@ -91,7 +91,7 @@ nav img {
 }
 .bottom-right.do-show {
   animation: slide-in-right 1s ease-in-out forwards,
-    slide-in-right 1s ease-in-out reverse forwards 5s;
+    slide-in-right 1s ease-in-out reverse forwards 19s;
 }
 .bottom-right > div {
   cursor: pointer;
