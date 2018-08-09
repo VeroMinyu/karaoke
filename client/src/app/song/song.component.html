@@ -3,25 +3,25 @@
     <div class="headerWrap">
       <div class="filterMenu" [ngStyle]="showMenu">
         <nav class="menu">
-          <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+          <input type="checkbox" [(ngModel)]="isChecked" class="menu-open" name="menu-open" id="menu-open" />
           <label class="menu-open-button" for="menu-open">
             <span class="hamburger hamburger-1"></span>
             <span class="hamburger hamburger-2"></span>
             <span class="hamburger hamburger-3"></span>
           </label>
-          <a class="menu-item" (click)="changeSkin('disco')">
+          <a class="menu-item" (click)="changeSkin('disco');">
             <i class="fas fa-compact-disc"></i>
           </a>
-          <a class="menu-item" (click)="changeSkin('speaker')">
+          <a class="menu-item" (click)="changeSkin('speaker');">
             <i class="fas fa-microphone-alt"></i>
           </a>
-          <a class="menu-item" (click)="changeSkin('ironhack')">
+          <a class="menu-item" (click)="changeSkin('ironhack');">
             <i class="fas fa-heart"></i>
           </a>
-          <a class="menu-item" (click)="changeSkin('wings')">
+          <a class="menu-item" (click)="changeSkin('wings');">
             <i class="fas fa-feather"></i>
           </a>
-          <a class="menu-item" (click)="changeSkin('atom')">
+          <a class="menu-item" (click)="changeSkin('atom');">
             <i class="fas fa-atom"></i>
           </a>
         </nav>
@@ -117,8 +117,13 @@
             </svg>
           </div>
       </div>
-        
 
+      <div class="ironhack" [ngStyle]="showTA">
+        <img src="../../assets/ta/marcHead.png" alt="Marc">
+        <img src="../../assets/ta/beltranHead.png" alt="Beltrán">
+        <img src="../../assets/ta/giorgioHeadNew.png" alt="Giorgio">
+      </div>
+        
       <div class="title">
         <h1 class="clip-text clip-text--cover">{{song.title}}</h1>
         <h2 class="{{changeTextColor}}">{{song.artist}}</h2>
@@ -168,6 +173,11 @@
           </div>
       </div>
 
+      <div class="ironhack" [ngStyle]="showTA">
+        <img src="../../assets/ta/susanaHead.png" alt="Susana">
+        <img src="../../assets/ta/gabiHead.png" alt="Gabi">
+        <img src="../../assets/ta/juanHead.png" alt="Juan">
+      </div>
 
     </div>
 

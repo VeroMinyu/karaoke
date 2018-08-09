@@ -24,6 +24,7 @@ export class SongComponent implements OnInit {
   showWings = {'display': 'none'}
   showAtom = {'display': 'none'}
   activeSkin: any;
+  isChecked;
   
   @ViewChild('videoPlayer') videoplayer: any;
   videoSource: string = "";
@@ -197,6 +198,7 @@ export class SongComponent implements OnInit {
 
   changeSkin(skin){
     this.activeSkin = skin;
+    this.isChecked = false;
   }
   
 }

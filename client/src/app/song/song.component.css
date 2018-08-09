@@ -978,3 +978,48 @@
   -webkit-transform: translate3d(-114.40705px, 11.66307px, 0);
           transform: translate3d(-114.40705px, 11.66307px, 0);
 }
+
+.ironhack img {
+  height: 100px;
+  margin: 0 10px;
+  animation: loop 1s infinite;
+}
+
+@keyframes loop {
+  0% {
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+  12.5% {
+    -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
+  }
+  25% {
+    -webkit-transform: rotate(-8deg);
+            transform: rotate(-8deg);
+  }
+  37.5% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  50% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+  62.5% {
+    -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+  }
+  75% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  87.5% {
+    -webkit-transform: rotate(8deg);
+            transform: rotate(8deg);
+  }
+  100% {
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+}
