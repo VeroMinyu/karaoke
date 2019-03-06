@@ -8,4 +8,4 @@ Karaoke desarrollado con el stack MEAN. Se trata del proyecto final del módulo 
 
 You can visit it here: https://karaoke-ih.herokuapp.com/karaoke
 Puedes visitarlo aquí: https://karaoke-ih.herokuapp.com/karaoke
-(the heroku website can be slow sometimes, please download it from github link below if you want to see the full performance)
+(the heroku website can be slow sometimes, please git clone it if you want to see the full performance)
