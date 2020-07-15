@@ -1,4 +1,10 @@
 ## Demo
+
+<p align="center">
+  <img src="karaoke-demo.gif" width="70%"/>
+</p>
+
+## Description
 <p align="center">
   <img src="Karaoke Live.png" width="70%"/>
 </p>
