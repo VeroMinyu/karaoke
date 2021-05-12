@@ -25,7 +25,7 @@
     "@types/lodash": "^4.14.116",
     "@types/socket.io-client": "^1.4.32",
     "base64-img": "^1.0.4",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "core-js": "^2.5.4",
     "facefilter": "^1.0.0",
     "ng2-charts": "^1.6.0",
